@@ -1,0 +1,30 @@
+$scale-animation: scale(1.1);
+
+.scale-animation {
+  @include transform($scale-animation);
+}
+
+.box-shadow-animation {
+  @include box-shadow-animation;
+}
+
+%disable-selection {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  cursor: default;
+}
+
+%screen {
+  overflow: hidden;
+  display: grid;
+  width: inherit;
+  height: inherit;
+
+  &:focus {
+    outline: $screen-outline;
+  }
+}

@@ -1,0 +1,11 @@
+.time-wifi-battery-bar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 10px;
+  align-items: center;
+  justify-content: stretch;
+  margin: $screen-padding;
+}

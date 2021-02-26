@@ -1,0 +1,46 @@
+.to-home-menu {
+  width: $lock-screen-home-menu-width;
+  padding: $screen-padding;
+
+  &--collapse {
+    width: 0;
+    padding: 0;
+    display: none;
+  }
+
+  &--expand {
+    width: $screen-section-width-expanded;
+  }
+
+  &-icon {
+    display: grid;
+    align-self: center;
+    justify-content: center;
+
+    &-image {
+      width: 72px;
+      height: 72px;
+      @include border-radius;
+      background-color: #ffffff;
+    }
+
+    &-text {
+      font-size: $font-size-xxs;
+      font-weight: $font-weight-thin;
+    }
+  }
+
+  &-continue {
+    display: grid;
+    grid-template-columns: max-content auto;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    &-text {
+      font-size: $font-size-xxl;
+      font-weight: $font-weight-light;
+      letter-spacing: 1px;
+    }
+  }
+}

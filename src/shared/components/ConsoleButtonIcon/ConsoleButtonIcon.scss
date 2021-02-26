@@ -1,0 +1,25 @@
+.icon {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  @include border-radius;
+  background-color: $console-button-bg-color;
+
+  p {
+    margin: 0;
+    color: $console-button-text-color;
+    font-size: $font-size-regular;
+    font-weight: $font-weight-semi-bold;
+  }
+
+  &-small {
+    width: 16px;
+    height: 16px;
+
+    p {
+      font-size: $font-size-xs;
+    }
+  }
+}
