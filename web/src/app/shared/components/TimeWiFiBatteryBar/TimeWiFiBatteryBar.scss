@@ -1,0 +1,32 @@
+.time-wifi-battery-bar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: $time-wifi-battery-bar-gap;
+  align-items: center;
+  justify-content: stretch;
+  height: $time-wifi-battery-bar-height;
+  margin: $time-wifi-battery-bar-margin;
+  font-size: $time-wifi-battery-bar-font-size;
+  font-weight: $time-wifi-battery-bar-font-weight;
+
+  .time {
+    .meridian {
+      font-size: $time-meridian-font-size;
+    }
+  }
+
+  .wifi {
+    .wifi-icon {
+      width: $wifi-icon-width;
+    }
+  }
+
+  .battery {
+    .battery-icon {
+      width: $battery-icon-width;
+    }
+  }
+}

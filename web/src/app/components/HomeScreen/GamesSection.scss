@@ -1,0 +1,114 @@
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, $games-grid-template-columns-size);
+  grid-auto-flow: column;
+  gap: $games-gap;
+
+  .game {
+    position: relative;
+    width: $game-width;
+    height: $game-height;
+    background: $game-background;
+    background-position: center center;
+    background-size: $game-background-size;
+    background-repeat: no-repeat;
+
+    // TODO: Remove :hover
+    &:focus,
+    &:hover {
+      outline: none;
+
+      .game-heading {
+        width: $game-heading-width-focus;
+
+        .game-title {
+          font-size: $game-title-font-size-focus;
+        }
+
+        &-long-title {
+          overflow: hidden;
+
+          .game-title {
+            display: inline-block;
+            padding-right: $game-title-long-padding-right;
+            @include animation(marquee 10s linear 2s infinite);
+
+            &::after {
+              content: attr(data-text);
+              display: block;
+              margin-top: $game-title-long-margin-top;
+              margin-left: $game-title-long-margin-left;
+            }
+
+            @include keyframes(marquee) {
+              0% {
+                @include transform(translateX(0));
+              }
+
+              50%,
+              100% {
+                @include transform(translateX(-100%));
+              }
+            }
+          }
+        }
+      }
+
+      .game-cover {
+        @include glowing-border-animation;
+      }
+    }
+
+    .game-heading {
+      position: absolute;
+      top: $game-heading-top;
+      left: 50%;
+      min-width: $game-heading-min-width;
+      max-width: $game-heading-max-width;
+      @include transform(translateX(-50%));
+
+      .game-title {
+        color: $game-title-color;
+        font-size: 0;
+        white-space: nowrap;
+      }
+    }
+
+    .game-cover {
+      display: block;
+      width: $game-cover-width;
+      height: $game-cover-height;
+      padding: $game-cover-padding;
+      border: $game-cover-border-width solid transparent;
+      border-radius: $game-cover-border-radius;
+    }
+  }
+
+  .all-software {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    &-icon {
+      width: $game-all-software-icon-width;
+      height: $game-all-software-icon-height;
+      border: $game-all-software-icon-border-width solid transparent;
+      border-radius: $game-all-software-icon-border-radius;
+      background-image: url("~images/icons/all-software.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      // TODO: to be completed
+      &:focus,
+      &:hover {
+        background-image: url("~images/icons/all-software-clicked.png");
+        @include glowing-border-animation;
+      }
+    }
+  }
+
+  .clear {
+    width: $games-clear-width;
+    height: $games-clear-height;
+  }
+}

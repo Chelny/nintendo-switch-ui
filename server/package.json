@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Nintendo Switch Server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.bundle.js",
+    "build": "webpack",
+    "dev": "nodemon ./server.js localhost 3001"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chelny/nintendo-switch-ui.git"
+  },
+  "author": "Chelny Duplan",
+  "license": "ISC",
+  "homepage": "https://github.com/chelny/nintendo-switch-ui#readme",
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.7",
+    "webpack": "5.24.2"
+  }
+}

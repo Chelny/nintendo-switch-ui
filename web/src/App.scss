@@ -1,0 +1,18 @@
+.app {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+
+.nintendo-switch {
+  width: $screen-width;
+  height: $screen-height;
+  border: $nintendo-switch-border-width solid $nintendo-switch-border-color;
+  border-left-width: $nintendo-switch-border-left-width;
+  border-right-width: $nintendo-switch-border-right-width;
+  @include border-radius($nintendo-switch-border-radius);
+  background-color: $screen-bg-color;
+  color: $nintendo-switch-color;
+  font-family: $nintendo-switch-font-family;
+  @extend %disable-selection;
+}

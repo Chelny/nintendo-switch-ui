@@ -1,0 +1,53 @@
+.users {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(36px, 36px));
+  grid-template-columns: repeat(auto-fill, minmax(36px, 36px));
+  gap: $users-gap;
+  width: $users-width;
+  height: $users-height;
+
+  .user {
+    position: relative;
+
+    &:first-child {
+      .user-name {
+        left: 0;
+        @include transform(none);
+      }
+    }
+
+    // TODO: Remove :hover
+    &:focus,
+    &:hover {
+      outline: none;
+
+      .user-icon {
+        margin: -1px; // Fix prevent moving content because of different border-width
+        border-width: $user-icon-border-width-focus;
+        @include glowing-border-animation;
+      }
+
+      .user-name {
+        font-size: $user-name-font-size;
+      }
+    }
+
+    .user-icon {
+      display: block;
+      width: $user-icon-width;
+      height: $user-icon-height;
+      padding: $user-icon-padding;
+      border: $user-icon-border-width solid $user-icon-border-color;
+      border-radius: $user-icon-border-radius;
+    }
+
+    .user-name {
+      position: absolute;
+      left: 50%;
+      width: $user-name-width;
+      color: $user-name-color;
+      font-size: 0;
+      @include transform(translateX(-50%));
+    }
+  }
+}

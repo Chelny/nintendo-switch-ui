@@ -1,0 +1,136 @@
+////////////////////////////// NINTENDO SWITCH //////////////////////////////
+$nintendo-switch-color: $white;
+$nintendo-switch-border-width: 32px;
+$nintendo-switch-border-color: $black;
+$nintendo-switch-border-left-width: 48px;
+$nintendo-switch-border-right-width: $nintendo-switch-border-left-width;
+$nintendo-switch-border-radius: 12px;
+
+
+////////////////////////////// SCREEN //////////////////////////////
+$screen-width: 800px;
+$screen-height: 450px;
+$screen-bg-color: $mine-shaft;
+$screen-outline: $black;
+
+$screen-padding-top: 20px;
+$screen-padding-bottom: 10px;
+$screen-padding-x: 20px;
+$screen-padding: $screen-padding-top $screen-padding-x $screen-padding-bottom;
+$screen-section-width-expanded: calc(#{$screen-width} - (2 * #{$screen-padding-x}));
+$screen-section-height: calc(#{$screen-height} - (#{$screen-padding-top} + #{$screen-padding-bottom}));
+
+
+////////////////////////////// LOCK SCREEN //////////////////////////////
+$lock-screen-featured-news-width: calc(250px - (2 * #{$screen-padding-x}));
+$lock-screen-home-menu-width: calc(550px - (2 * #{$screen-padding-x}));
+$lock-screen-featured-news-bg-color: $cod-gray;
+
+$unlock-bar-height: 70px;
+$unlock-bar-bullet-border-color: $white;
+$unlock-bar-bullet-bg-color-active: $white;
+
+
+////////////////////////////// CARD //////////////////////////////
+$card-bg-color: $gray;
+$card-featured-news-width: 200px;
+$card-featured-news-height: 100px;
+$card-featured-news-bg-color: $gray;
+$card-user-width: 24px;
+$card-user-height: 24px;
+
+
+////////////////////////////// TIME-WIFI-BATTERY //////////////////////////////
+$time-wifi-battery-bar-gap: 10px;
+$time-wifi-battery-bar-height: 36px;
+$time-wifi-battery-bar-margin: $screen-padding;
+$time-wifi-battery-bar-font-size: $font-size-xs;
+$time-wifi-battery-bar-font-weight: $font-weight-semi-bold;
+$time-meridian-font-size: $font-size-xxs;
+$wifi-icon-width: 14px;
+$battery-icon-width: 17px;
+
+
+////////////////////////////// USERS //////////////////////////////
+$users-section-padding: $screen-padding-top $screen-padding-x 20px;
+$users-gap: 5px;
+$users-width: calc(#{$screen-width} / 2);
+$users-height: 36px;
+$user-icon-width: 28px;
+$user-icon-height: 28px;
+$user-icon-padding: 1px;
+$user-icon-border-width: 2px;
+$user-icon-border-width-focus: 3px;
+$user-icon-border-color: $gray;
+$user-icon-border-radius: 50%;
+$user-name-width: max-content;
+$user-name-color: $robins-egg-blue;
+$user-name-font-size: $font-size-xs;
+
+
+////////////////////////////// GAMES //////////////////////////////
+$games-section-margin-right: 700px;
+$games-section-padding: 20px 50px 0;
+$game-cover-width: 175px;
+$game-cover-height: $game-cover-width;
+$game-cover-padding: 1px;
+$game-cover-border-width: 3px;
+$game-cover-border-radius: 2px;
+$game-background-size: calc(#{$game-cover-width} - 1px) calc(#{$game-cover-width} - 1px);
+$games-grid-template-columns-size: minmax(180px, 180px);
+$games-gap: 1px;
+$games-clear-width: 100px;
+$games-clear-height: $game-cover-height;
+$game-width: calc(#{$game-cover-width} + (2 * #{$game-cover-padding}) + (2 * #{$game-cover-border-width}));
+$game-height: $game-width;
+$game-background: repeating-linear-gradient(45deg, #0005, #0005 10px, #CCC5 10px, #CCC5 20px);
+$game-heading-top: -30px;
+$game-heading-min-width: $game-cover-width;
+$game-heading-max-width: 200px;
+$game-heading-width-focus: $game-heading-max-width;
+$game-title-long-margin-top: -28px;
+$game-title-long-padding-right: 50px;
+$game-title-long-margin-left: calc(100% + #{$game-title-long-padding-right});
+$game-title-color: $robins-egg-blue;
+$game-title-font-size-focus: $font-size-small;
+$game-all-software-icon-width: 96px;
+$game-all-software-icon-height: $game-all-software-icon-width;
+$game-all-software-icon-border-width: $game-cover-border-width;
+$game-all-software-icon-border-radius: 50%;
+
+
+////////////////////////////// NAVIGATION //////////////////////////////
+$navigation-gap: 5px;
+$nav-item-icon-width: 48px;
+$nav-item-icon-height: $nav-item-icon-width;
+$nav-item-icon-border-width: 3px;
+$nav-item-icon-border-radius: 50%;
+$nav-item-title-width: max-content;
+$nav-item-title-color: $robins-egg-blue;
+$nav-item-title-font-size: $font-size-xs;
+
+
+////////////////////////////// NAVIGATION //////////////////////////////
+$footer-section-width: calc(#{$screen-width} - (2 * 20px)); // Add margin * 2
+$footer-section-margin: 0 20px;
+$footer-section-border-width: 1px;
+$footer-section-border-color: $white;
+$footer-nintendo-switch-mode-logo-width: 48px;
+$footer-controller-hints-gap: 10px;
+
+
+////////////////////////////// MISC //////////////////////////////
+$console-button-bg-color: $white;
+$console-button-color: $mine-shaft;
+
+$glowing-border-color-from-hover: $robins-egg-blue;
+$glowing-border-color-to-hover: $ice-cold;
+
+
+////////////////////////////// ROOT //////////////////////////////
+:root {
+  --card-bg-color: #{$card-bg-color};
+  --card-featured-news-bg-color: #{$card-featured-news-bg-color};
+  --card-featured-news-width: #{$card-featured-news-width};
+  --card-featured-news-height: #{$card-featured-news-height};
+}

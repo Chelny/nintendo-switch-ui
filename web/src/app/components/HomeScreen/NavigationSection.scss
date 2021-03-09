@@ -1,0 +1,43 @@
+.navigation {
+  display: grid;
+  grid-auto-columns: max-content;
+  grid-auto-flow: column;
+  gap: $navigation-gap;
+  justify-content: center;
+
+  .nav-item {
+    position: relative;
+
+    // TODO: Remove :hover
+    &:focus,
+    &:hover {
+      outline: none;
+
+      .nav-item-icon {
+        @include glowing-border-animation;
+      }
+
+      .nav-item-title {
+        font-size: $nav-item-title-font-size;
+      }
+    }
+
+    .nav-item-icon {
+      display: block;
+      width: $nav-item-icon-width;
+      height: $nav-item-icon-height;
+      border: $nav-item-icon-border-width solid transparent;
+      border-radius: $nav-item-icon-border-radius;
+    }
+
+    .nav-item-title {
+      position: absolute;
+      left: 50%;
+      bottom: -20px;
+      width: $nav-item-title-width;
+      color: $nav-item-title-color;
+      font-size: 0;
+      @include transform(translateX(-50%));
+    }
+  }
+}

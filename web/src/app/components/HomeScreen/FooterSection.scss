@@ -1,0 +1,18 @@
+.footer {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  align-items: center;
+  justify-content: space-between;
+
+  .nintendo-switch-mode-logo {
+    &-handheld {
+      width: $footer-nintendo-switch-mode-logo-width;
+    }
+  }
+
+  .controller-hints {
+    display: grid;
+    gap: $footer-controller-hints-gap;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "image": "the-legend-of-zelda-breath-of-the-wild",
+    "cartridge": true
+  },
+  {
+    "id": 2,
+    "title": "Paper Mario: The Origami King",
+    "image": "paper-mario-the-origami-king",
+    "cartridge": false
+  },
+  {
+    "id": 3,
+    "title": "Not Not - A Brain Buster",
+    "image": "not-not-a-brain-buster",
+    "cartridge": false
+  },
+  {
+    "id": 4,
+    "title": "Rocket League®",
+    "image": "rocket-league",
+    "cartridge": false
+  },
+  {
+    "id": 5,
+    "title": "Asphalt 9: Legends",
+    "image": "asphalt-9-legends",
+    "cartridge": false
+  },
+  {
+    "id": 6,
+    "title": "Lines X",
+    "image": "lines-x",
+    "cartridge": false
+  },
+  {
+    "id": 7,
+    "title": "Picross 5",
+    "image": "picross-5",
+    "cartridge": false
+  },
+  {
+    "id": 8,
+    "title": "Picross 4",
+    "image": "picross-4",
+    "cartridge": false
+  },
+  {
+    "id": 9,
+    "title": "Pokémon Quest",
+    "image": "pokemon-quest",
+    "cartridge": false
+  },
+  {
+    "id": 10,
+    "title": "Pokémon: Let's Go, Eevee!",
+    "image": "pokemon-lets-go-eevee",
+    "cartridge": false
+  },
+  {
+    "id": 11,
+    "title": "Island Maze",
+    "image": "island-maze",
+    "cartridge": false
+  },
+  {
+    "id": 12,
+    "title": "Pokémon Shield",
+    "image": "pokemon-shield",
+    "cartridge": false
+  },
+  {
+    "id": 13,
+    "title": "Super Mario Party",
+    "image": "super-mario-party",
+    "cartridge": false
+  },
+  {
+    "id": 14,
+    "title": "Super Mario Smash Bros. Ultimate",
+    "image": "super-smash-bros-ultimate",
+    "cartridge": false
+  },
+  {
+    "id": 15,
+    "title": "Mario Kart 8 Deluxe",
+    "image": "mario-kart-8-deluxe",
+    "cartridge": false
+  },
+  {
+    "id": 16,
+    "title": "Surfingers",
+    "image": "surfingers",
+    "cartridge": false
+  },
+  {
+    "id": 17,
+    "title": "Pokémon Café Mix",
+    "image": "pokemon-cafe-mix",
+    "cartridge": false
+  },
+  {
+    "id": 18,
+    "title": "Super Kirby Clash",
+    "image": "super-kirby-clash",
+    "cartridge": false
+  },
+  {
+    "id": 19,
+    "title": "Jeopardy!",
+    "image": "jeopardy",
+    "cartridge": false
+  },
+  {
+    "id": 20,
+    "title": "Trivial Pursuit Live!",
+    "image": "trivial-pursuit-live",
+    "cartridge": false
+  },
+  {
+    "id": 21,
+    "title": "Pokémon HOME",
+    "image": "pokemon-home",
+    "cartridge": false
+  }
+]

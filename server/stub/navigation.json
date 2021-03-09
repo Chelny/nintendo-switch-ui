@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Nintendo Switch Online",
+    "image": "nintendo-switch-online",
+    "unread": true
+  },
+  {
+    "id": 2,
+    "title": "News",
+    "image": "news",
+    "unread": true
+  },
+  {
+    "id": 3,
+    "title": "Nintendo eShop",
+    "image": "nintendo-eshop",
+    "unread": false
+  },
+  {
+    "id": 4,
+    "title": "Album",
+    "image": "album",
+    "unread": false
+  },
+  {
+    "id": 5,
+    "title": "Controllers",
+    "image": "controllers",
+    "unread": false
+  },
+  {
+    "id": 6,
+    "title": "System Settings",
+    "image": "system-settings",
+    "unread": false
+  },
+  {
+    "id": 7,
+    "title": "Sleep Mode",
+    "image": "sleep-mode",
+    "unread": false
+  }
+]

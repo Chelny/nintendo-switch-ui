@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Chelny",
+    "image": "player1"
+  },
+  {
+    "id": 2,
+    "name": "Rachel",
+    "image": "player2"
+  },
+  {
+    "id": 3,
+    "name": "Michelle",
+    "image": "player3"
+  },
+  {
+    "id": 4,
+    "name": "CHQ",
+    "image": "player4"
+  },
+  {
+    "id": 5,
+    "name": "Michelle Jr.",
+    "image": "player5"
+  },
+  {
+    "id": 6,
+    "name": "Guest",
+    "image": "player6"
+  }
+]
