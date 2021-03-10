@@ -13,9 +13,7 @@
     background-size: $game-background-size;
     background-repeat: no-repeat;
 
-    // TODO: Remove :hover
-    &:focus,
-    &:hover {
+    &:focus {
       outline: none;
 
       .game-heading {
@@ -88,8 +86,27 @@
     display: grid;
     align-items: center;
     justify-content: center;
+    width: $game-all-software-width;
+    height: $game-all-software-height;
 
-    &-icon {
+    &:focus {
+      outline: none;
+
+      .all-software-icon {
+        @include glowing-border-animation;
+
+        &.clicked {
+          background-image: url("~images/icons/all-software-clicked.png");
+        }
+
+        .all-software-title {
+          display: inherit;
+        }
+      }
+    }
+
+    .all-software-icon {
+      position: relative;
       width: $game-all-software-icon-width;
       height: $game-all-software-icon-height;
       border: $game-all-software-icon-border-width solid transparent;
@@ -98,11 +115,11 @@
       background-size: cover;
       background-repeat: no-repeat;
 
-      // TODO: to be completed
-      &:focus,
-      &:hover {
-        background-image: url("~images/icons/all-software-clicked.png");
-        @include glowing-border-animation;
+      .all-software-title {
+        display: none;
+        position: absolute;
+        top: $game-all-software-top;
+        color: $game-all-software-title-color;
       }
     }
   }

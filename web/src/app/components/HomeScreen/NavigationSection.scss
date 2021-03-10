@@ -8,9 +8,7 @@
   .nav-item {
     position: relative;
 
-    // TODO: Remove :hover
-    &:focus,
-    &:hover {
+    &:focus {
       outline: none;
 
       .nav-item-icon {

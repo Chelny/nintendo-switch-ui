@@ -24,19 +24,11 @@ export default class FeaturedNewsSection extends React.Component {
   }
 
   render() {
-    const featuredNewsCardStyle = {
-      width: `var(--card-featured-news-width)`,
-      height: `var(--card-featured-news-height)`,
-      margin: "0 auto",
-      backgroundColor: `var(--card-featured-news-bg-color)`
-    }
-
     return (
       <section className={`to-featured-news ${this.props.expanded === LockScreenSection.FeaturedNews ? "to-featured-news--expand" : this.props.expanded === LockScreenSection.Home ? "to-featured-news--collapse" : ""} ${this.props.scaleAnimation ? "scale-animation" : ""}`}>
         <div className="featured-news-list">
-          {this.state.featuredNews.map((item, index) =>
-            <Card key={item.id} image={item.image} style={featuredNewsCardStyle}
-              boxShadowAnimation={this.props.boxShadowAnimation} />
+          {this.state.featuredNews.map(item =>
+            <Card key={item.id} image={item.image} boxShadowAnimation={this.props.boxShadowAnimation} />
           )}
         </div>
         {this.props.expanded === LockScreenSection.FeaturedNews ?

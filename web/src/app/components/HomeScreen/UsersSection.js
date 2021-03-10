@@ -24,7 +24,8 @@ export default class UsersSection extends React.Component {
     return (
       <div className="users">
         { this.state.users.map((user, index) =>
-          <div className="user" key={user.id} tabIndex={index} ref={ref => this.usersRef[index] = ref}>
+          <div className="user" key={user.id} tabIndex={this.props.tabIndexGroup + index}
+            ref={ref => this.usersRef[index] = ref}>
             <img className="user-icon" src={`assets/images/users/${user.image}.png`}
               alt={user.name} title={user.name} />
             <span className="user-name">{user.name}'s Page</span>

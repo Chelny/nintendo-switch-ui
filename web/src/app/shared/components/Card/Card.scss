@@ -2,4 +2,8 @@
   display: grid;
   align-items: center;
   justify-content: center;
+  width: $card-width;
+  height: $card-height;
+  margin: 0 auto;
+  background-color: $card-bg-color;
 }

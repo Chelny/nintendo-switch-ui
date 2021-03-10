@@ -8,8 +8,8 @@ $nintendo-switch-border-radius: 12px;
 
 
 ////////////////////////////// SCREEN //////////////////////////////
-$screen-width: 800px;
-$screen-height: 450px;
+$screen-width: 800px; // 800 or 640
+$screen-height: 450px; // 450 or 360
 $screen-bg-color: $mine-shaft;
 $screen-outline: $black;
 
@@ -29,15 +29,6 @@ $lock-screen-featured-news-bg-color: $cod-gray;
 $unlock-bar-height: 70px;
 $unlock-bar-bullet-border-color: $white;
 $unlock-bar-bullet-bg-color-active: $white;
-
-
-////////////////////////////// CARD //////////////////////////////
-$card-bg-color: $gray;
-$card-featured-news-width: 200px;
-$card-featured-news-height: 100px;
-$card-featured-news-bg-color: $gray;
-$card-user-width: 24px;
-$card-user-height: 24px;
 
 
 ////////////////////////////// TIME-WIFI-BATTERY //////////////////////////////
@@ -69,8 +60,7 @@ $user-name-font-size: $font-size-xs;
 
 
 ////////////////////////////// GAMES //////////////////////////////
-$games-section-margin-right: 700px;
-$games-section-padding: 20px 50px 0;
+$games-section-padding: 20px 40px 0;
 $game-cover-width: 175px;
 $game-cover-height: $game-cover-width;
 $game-cover-padding: 1px;
@@ -79,7 +69,7 @@ $game-cover-border-radius: 2px;
 $game-background-size: calc(#{$game-cover-width} - 1px) calc(#{$game-cover-width} - 1px);
 $games-grid-template-columns-size: minmax(180px, 180px);
 $games-gap: 1px;
-$games-clear-width: 100px;
+$games-clear-width: 90px;
 $games-clear-height: $game-cover-height;
 $game-width: calc(#{$game-cover-width} + (2 * #{$game-cover-padding}) + (2 * #{$game-cover-border-width}));
 $game-height: $game-width;
@@ -93,6 +83,10 @@ $game-title-long-padding-right: 50px;
 $game-title-long-margin-left: calc(100% + #{$game-title-long-padding-right});
 $game-title-color: $robins-egg-blue;
 $game-title-font-size-focus: $font-size-small;
+$game-all-software-width: $game-width;
+$game-all-software-height: $game-height;
+$game-all-software-top: -35px;
+$game-all-software-title-color: $robins-egg-blue;
 $game-all-software-icon-width: 96px;
 $game-all-software-icon-height: $game-all-software-icon-width;
 $game-all-software-icon-border-width: $game-cover-border-width;
@@ -119,18 +113,15 @@ $footer-nintendo-switch-mode-logo-width: 48px;
 $footer-controller-hints-gap: 10px;
 
 
+////////////////////////////// CARD //////////////////////////////
+$card-bg-color: $gray;
+$card-width: 200px;
+$card-height: 100px;
+
+
 ////////////////////////////// MISC //////////////////////////////
 $console-button-bg-color: $white;
 $console-button-color: $mine-shaft;
 
 $glowing-border-color-from-hover: $robins-egg-blue;
 $glowing-border-color-to-hover: $ice-cold;
-
-
-////////////////////////////// ROOT //////////////////////////////
-:root {
-  --card-bg-color: #{$card-bg-color};
-  --card-featured-news-bg-color: #{$card-featured-news-bg-color};
-  --card-featured-news-width: #{$card-featured-news-width};
-  --card-featured-news-height: #{$card-featured-news-height};
-}

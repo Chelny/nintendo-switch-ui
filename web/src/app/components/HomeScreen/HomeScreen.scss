@@ -4,6 +4,7 @@
   grid-template-rows: max-content 4fr 2fr 1fr;
 
   > section {
+    overflow: hidden;
     display: grid;
     align-items: center;
     width: inherit;
@@ -14,8 +15,6 @@
   }
 
   .games-section {
-    overflow: auto;
-    margin-right: $games-section-margin-right;
     padding: $games-section-padding;
     -ms-overflow-style: none; // IE and Edge
     scrollbar-width: none; // Firefox
@@ -23,9 +22,6 @@
     &::-webkit-scrollbar {
       display: none;
     }
-  }
-
-  .navigation-section {
   }
 
   .footer-section {

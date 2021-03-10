@@ -16,9 +16,7 @@
       }
     }
 
-    // TODO: Remove :hover
-    &:focus,
-    &:hover {
+    &:focus {
       outline: none;
 
       .user-icon {
