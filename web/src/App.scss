@@ -5,8 +5,7 @@
 }
 
 .nintendo-switch {
-  width: $screen-width;
-  height: $screen-height;
+  margin: 0 auto;
   border: $nintendo-switch-border-width solid $nintendo-switch-border-color;
   border-left-width: $nintendo-switch-border-left-width;
   border-right-width: $nintendo-switch-border-right-width;

@@ -1,46 +1,22 @@
-.to-home-menu {
+.home-menu {
   width: $lock-screen-home-menu-width;
-  padding: $screen-padding;
+  height: $lock-screen-home-menu-height;
+  padding: $lock-screen-home-menu-padding;
 
   &--collapse {
+    display: none;
     width: 0;
     padding: 0;
-    display: none;
   }
 
   &--expand {
-    width: $screen-section-width-expanded;
+    width: $lock-screen-home-menu-width-expanded;
   }
 
-  &-icon {
-    display: grid;
-    align-self: center;
-    justify-content: center;
-
-    &-image {
-      width: 72px;
-      height: 72px;
-      @include border-radius;
-      background-color: #ffffff;
-    }
-
-    &-text {
-      font-size: $font-size-xxs;
-      font-weight: $font-weight-thin;
-    }
-  }
-
-  &-continue {
-    display: grid;
-    grid-template-columns: max-content auto;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-
-    &-text {
-      font-size: $font-size-xxl;
-      font-weight: $font-weight-light;
-      letter-spacing: 1px;
-    }
+  .home-menu__icon {
+    width: $lock-screen-home-menu-icon-width;
+    height: $lock-screen-home-menu-icon-height;
+    margin: 0 auto;
+    @include border-radius;
   }
 }

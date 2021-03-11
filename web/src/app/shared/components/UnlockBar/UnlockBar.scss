@@ -1,31 +1,21 @@
-.unlock-bar-wrapper {
+.unlock-bar {
   position: relative;
   display: grid;
   justify-content: center;
-  gap: 10px;
+  gap: $unlock-bar-gap;
+  width: $unlock-bar-width;
   height: $unlock-bar-height;
-  font-size: $font-size-large;
-  font-weight: $font-weight-regular;
+  font-weight: $unlock-bar-font-weight;
 
-  &-text {
+  .unlock-bar__text {
     align-self: flex-end;
     margin: 0;
   }
 
-  .to-lock-screen-button-wrapper {
+  .controller-button {
     position: absolute;
     top: 50%;
-    left: 20px;
-    display: grid;
-    grid-template-columns: max-content auto;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(-50%);
-
-    &-text {
-      font-size: $font-size-xs;
-      font-weight: $font-weight-light;
-    }
+    left: $controller-button-left;
+    @include transform(translateY(-50%));
   }
 }

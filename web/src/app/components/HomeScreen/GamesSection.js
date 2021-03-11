@@ -47,7 +47,6 @@ export default class GamesSection extends React.Component {
             </div>
           </div>
         : null}
-        <div className="clear"></div>
       </div>
     );
   }

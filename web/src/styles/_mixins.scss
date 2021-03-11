@@ -107,3 +107,12 @@
     to { border-color: $glowing-border-color-to-hover; }
   }
 }
+
+@mixin shaking-border-animation() {
+  @include animation(shake 0.2s);
+  @include keyframes(shake) {
+    10% { @include transform(translate(-1px, 0)); }
+    25% { @include transform(translate(2px, 0)); }
+    75% { @include transform(translate(-2px, 0)); }
+  }
+}

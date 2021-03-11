@@ -21,15 +21,15 @@ export default class App extends React.Component {
       <div className="app">
         <h1>Nintendo Switch Home Screen UI (Dark Theme)</h1>
         <div className="nintendo-switch">
-          <HomeScreen />
+          {/* <HomeScreen /> */}
           {/* TODO: Complete FeaturedNewsScreen */}
-          {/* {this.state.visible === Screen.Home ?
+          {this.state.visible === Screen.Home ?
             <HomeScreen />
             :
-            this.state.visible === Screen.FeaturedNews ?
-              <FeaturedNewsScreen />
-              :
-              <LockScreen screenChange={this.setScreen} />} */}
+            // this.state.visible === Screen.FeaturedNews ?
+            //   <FeaturedNewsScreen />
+            //   :
+              <LockScreen screenChange={this.setScreen} />}
         </div>
         <p><b>Instructions:</b><br />Use the followings keys: arrow keys, A, B, X and Y.</p>
         <small>This webpage is optimized for desktop only.</small>

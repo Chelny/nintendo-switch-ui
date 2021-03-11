@@ -21,8 +21,8 @@ $scale-animation: scale(1.1);
 %screen {
   overflow: hidden;
   display: grid;
-  width: inherit;
-  height: inherit;
+  width: $screen-width;
+  height: $screen-height;
 
   &:focus {
     outline: $screen-outline;

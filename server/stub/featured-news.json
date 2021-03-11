@@ -1,14 +1,17 @@
 [
   {
     "id": 1,
-    "image": "IMG 1"
+    "title": "Games on Sale",
+    "image": "games-on-sale"
   },
   {
     "id": 2,
-    "image": "IMG 2"
+    "title": "News #2",
+    "image": ""
   },
   {
     "id": 3,
-    "image": "IMG 3"
+    "title": "News #3",
+    "image": ""
   }
 ]

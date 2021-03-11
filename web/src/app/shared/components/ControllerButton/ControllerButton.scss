@@ -1,0 +1,35 @@
+.controller-button {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: $controller-button-gap;
+  align-items: center;
+  justify-content: center;
+
+  &.controller-button--small {
+    .controller-button__icon {
+      width: $controller-button-icon-width-small;
+      height: $controller-button-icon-height-small;
+      line-height: $controller-button-icon-line-height-small;
+    }
+
+    .controller-button__text {
+      font-size: $controller-button-text-font-size-small;
+    }
+  }
+
+  .controller-button__icon {
+    width: $controller-button-icon-width;
+    height: $controller-button-icon-height;
+    @include border-radius;
+    background-color: $controller-button-icon-bg-color;
+    color: $controller-button-icon-color;
+    font-weight: $controller-button-icon-font-weight;
+    line-height: $controller-button-icon-line-height;
+  }
+
+  .controller-button__text {
+    margin: 0;
+    font-size: $controller-button-text-font-size;
+    letter-spacing: 1px;
+  }
+}

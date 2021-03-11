@@ -8,7 +8,7 @@
     position: relative;
     width: $game-width;
     height: $game-height;
-    background: $game-background;
+    background: $broken-image-background;
     background-position: center center;
     background-size: $game-background-size;
     background-repeat: no-repeat;
@@ -78,7 +78,7 @@
       height: $game-cover-height;
       padding: $game-cover-padding;
       border: $game-cover-border-width solid transparent;
-      border-radius: $game-cover-border-radius;
+      @include border-radius($game-cover-border-radius);
     }
   }
 
@@ -110,7 +110,7 @@
       width: $game-all-software-icon-width;
       height: $game-all-software-icon-height;
       border: $game-all-software-icon-border-width solid transparent;
-      border-radius: $game-all-software-icon-border-radius;
+      @include border-radius;
       background-image: url("~images/icons/all-software.png");
       background-size: cover;
       background-repeat: no-repeat;
@@ -118,14 +118,13 @@
       .all-software-title {
         display: none;
         position: absolute;
-        top: $game-all-software-top;
+        left: 50%;
+        top: $game-all-software-title-top;
         color: $game-all-software-title-color;
+        font-size: $game-all-software-title-font-size;
+        white-space: nowrap;
+        @include transform(translateX(-50%));
       }
     }
-  }
-
-  .clear {
-    width: $games-clear-width;
-    height: $games-clear-height;
   }
 }

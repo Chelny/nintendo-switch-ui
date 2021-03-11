@@ -8,9 +8,9 @@ export default class Card extends React.Component {
 
   render() {
     return (
-      <div className={`card ${this.props.boxShadowAnimation ? "box-shadow-animation" : ""}`}
-        style={this.props.style}>
-        <p>{this.props.image}</p>
+      <div className={`card ${this.props.boxShadowAnimation ? "box-shadow-animation" : ""}`}>
+        {/* <img src={this.props.image} alt={this.props.title} title={this.props.title} /> */}
+        <p>{this.props.title}</p>
       </div>
     );
   }

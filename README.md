@@ -22,7 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The app has been tested in Chrome, Firefox and Safari so, there should be no worries to use these browsers.
 
-Make sure to that the browser's viewport is at least 1130px large. The app is optimized for desktop only.
+Make sure to that the browser's viewport is at least 920px large. The app is optimized for desktop only.
 
 ## Copyright
 

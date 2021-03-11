@@ -3,7 +3,7 @@ import "./FeaturedNewsSection.scss";
 import { LockScreenSection } from "../../shared/enums/LockScreenSection";
 import FeaturedNewsService from "../../services/FeaturedNewsService";
 import Card from "../../shared/components/Card/Card";
-import ConsoleButtonIcon from "../../shared/components/ConsoleButtonIcon/ConsoleButtonIcon";
+import ControllerButton from "../../shared/components/ControllerButton/ControllerButton";
 import UnlockBar from "../../shared/components/UnlockBar/UnlockBar";
 
 export default class FeaturedNewsSection extends React.Component {
@@ -17,6 +17,9 @@ export default class FeaturedNewsSection extends React.Component {
   componentDidMount() {
     FeaturedNewsService.getFeaturedNews().then(
       response => {
+        response.forEach(item => {
+          item.image = `assets/images/featured-news/${item.image}.png`;
+        });
         this.setState({ featuredNews: response });
       },
       error => console.error(error)
@@ -25,22 +28,15 @@ export default class FeaturedNewsSection extends React.Component {
 
   render() {
     return (
-      <section className={`to-featured-news ${this.props.expanded === LockScreenSection.FeaturedNews ? "to-featured-news--expand" : this.props.expanded === LockScreenSection.Home ? "to-featured-news--collapse" : ""} ${this.props.scaleAnimation ? "scale-animation" : ""}`}>
-        <div className="featured-news-list">
+      <section className={`featured-news ${this.props.expanded === LockScreenSection.FeaturedNews ? "featured-news--expand" : this.props.expanded === LockScreenSection.Home ? "featured-news--collapse" : ""} ${this.props.scaleAnimation ? "scale-animation" : ""}`}>
+        <div className="featured-news__list">
           {this.state.featuredNews.map(item =>
-            <Card key={item.id} image={item.image} boxShadowAnimation={this.props.boxShadowAnimation} />
-          )}
+            <Card key={item.id} {...item} boxShadowAnimation={this.props.boxShadowAnimation} />)}
         </div>
         {this.props.expanded === LockScreenSection.FeaturedNews ?
           <UnlockBar bulletsCount={this.props.unlockBulletsCount}
-            progress={this.props.unlockProgress} />
-          :
-          <div className="to-featured-news-featured-news">
-            <ConsoleButtonIcon content="Y" />
-            <p className="to-featured-news-featured-news-text">
-              Featured News
-            </p>
-          </div>}
+            progress={this.props.unlockProgress} /> :
+          <ControllerButton button="Y" text="Featured News" />}
       </section>
     );
   }

@@ -111,33 +111,43 @@ export default class HomeScreen extends React.Component {
         const games = Array.from(document.querySelectorAll('.game'));
         // Looping allowed with games
         if (this.direction === DIRECTION.RIGHT) {
-          element = games.shift();
+          element = games[0];
           loopScrollPos = 0;
         } else if (this.direction === DIRECTION.LEFT) {
           const allSoftwareEl = document.querySelector('.all-software');
           element = allSoftwareEl ? allSoftwareEl : games.slice(-1).pop();
-          loopScrollPos = element.closest('section').scrollWidth;
+          const parentEl = element.closest('section');
+          loopScrollPos = parentEl.scrollWidth + parentEl.getBoundingClientRect().x;
         }
       } else {
+        const focusedElIcon = this.focusedElement.querySelector('[class*="-icon"]');
+        focusedElIcon.classList.add('shake-animation');
+        setTimeout(() => {
+          focusedElIcon.classList.remove('shake-animation');
+        }, 200);
         return;
       }
     }
 
     const parentEl = element.closest('section');
-    const parentScrollPos = loopScrollPos !== null ? loopScrollPos : parentEl.scrollLeft;
+    const parentScrollPos = Math.round(loopScrollPos !== null ? loopScrollPos : parentEl.scrollLeft);
+    const parentElDOMRect = parentEl.getBoundingClientRect();
+    const leftLimit = Math.round(parentElDOMRect.x);
+    const rightLimit = Math.round(leftLimit + 640);
     const elDOMRect = element.getBoundingClientRect();
+    const elementWidth = Math.round(elDOMRect.width);
     const elementLeftPos = Math.round(elDOMRect.x);
-    const elementRightPos = Math.round(elementLeftPos + elDOMRect.width);
+    const elementRightPos = Math.round(elementLeftPos + elementWidth);
+
+    if (elementLeftPos >= rightLimit || elementRightPos >= rightLimit) {
+      parentEl.scroll({ left: parentScrollPos + elementWidth });
+    }
+
+    if (elementLeftPos <= leftLimit || elementRightPos <= leftLimit) {
+      parentEl.scroll({ left: parentScrollPos - elementWidth });
+    }
 
     element.focus();
-
-    if (elementLeftPos <= 0 || elementRightPos <= 0) {
-      parentEl.scroll({ left: parentScrollPos - 183 });
-    }
-
-    if (elementLeftPos >= 850 || elementRightPos >= 850) {
-      parentEl.scroll({ left: parentScrollPos + 183 });
-    }
   };
 
   render() {

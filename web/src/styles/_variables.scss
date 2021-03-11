@@ -8,25 +8,35 @@ $nintendo-switch-border-radius: 12px;
 
 
 ////////////////////////////// SCREEN //////////////////////////////
-$screen-width: 800px; // 800 or 640
-$screen-height: 450px; // 450 or 360
+$screen-width: 640px;
+$screen-height: 360px;
 $screen-bg-color: $mine-shaft;
 $screen-outline: $black;
 
-$screen-padding-top: 20px;
-$screen-padding-bottom: 10px;
 $screen-padding-x: 20px;
-$screen-padding: $screen-padding-top $screen-padding-x $screen-padding-bottom;
-$screen-section-width-expanded: calc(#{$screen-width} - (2 * #{$screen-padding-x}));
-$screen-section-height: calc(#{$screen-height} - (#{$screen-padding-top} + #{$screen-padding-bottom}));
+$screen-padding-y: 20px;
+$screen-padding: $screen-padding-x $screen-padding-y;
 
 
 ////////////////////////////// LOCK SCREEN //////////////////////////////
-$lock-screen-featured-news-width: calc(250px - (2 * #{$screen-padding-x}));
-$lock-screen-home-menu-width: calc(550px - (2 * #{$screen-padding-x}));
+$lock-screen-featured-news-width: calc(#{$screen-width} / 3);
+$lock-screen-featured-news-width-expanded: $screen-width;
+$lock-screen-featured-news-height: $screen-height;
 $lock-screen-featured-news-bg-color: $cod-gray;
+$lock-screen-featured-news-list-gap: 10px;
+$lock-screen-featured-news-list-gap-expanded: 5px;
 
+$lock-screen-home-menu-width: calc(#{$screen-width} - (#{$screen-width} / 3));
+$lock-screen-home-menu-width-expanded: $screen-width;
+$lock-screen-home-menu-height: $screen-height;
+$lock-screen-home-menu-padding: $screen-padding;
+$lock-screen-home-menu-icon-width: 72px;
+$lock-screen-home-menu-icon-height: $lock-screen-home-menu-icon-width;
+
+$unlock-bar-gap: 10px;
+$unlock-bar-width: inherit;
 $unlock-bar-height: 70px;
+$unlock-bar-font-weight: $font-weight-regular;
 $unlock-bar-bullet-border-color: $white;
 $unlock-bar-bullet-bg-color-active: $white;
 
@@ -43,38 +53,37 @@ $battery-icon-width: 17px;
 
 
 ////////////////////////////// USERS //////////////////////////////
-$users-section-padding: $screen-padding-top $screen-padding-x 20px;
+$users-section-padding: $screen-padding-x $screen-padding-y;
+$users-grid-template-rows-size: minmax(30px, 30px);
+$users-grid-template-columns-size: minmax(30px, 30px);
 $users-gap: 5px;
 $users-width: calc(#{$screen-width} / 2);
-$users-height: 36px;
-$user-icon-width: 28px;
-$user-icon-height: 28px;
+$users-height: 30px;
+$user-icon-width: 24px;
+$user-icon-height: 24px;
 $user-icon-padding: 1px;
 $user-icon-border-width: 2px;
 $user-icon-border-width-focus: 3px;
 $user-icon-border-color: $gray;
-$user-icon-border-radius: 50%;
 $user-name-width: max-content;
 $user-name-color: $robins-egg-blue;
 $user-name-font-size: $font-size-xs;
 
 
 ////////////////////////////// GAMES //////////////////////////////
-$games-section-padding: 20px 40px 0;
-$game-cover-width: 175px;
+$games-section-padding: 20px 0 0 40px;
+$game-cover-width: 136px;
 $game-cover-height: $game-cover-width;
 $game-cover-padding: 1px;
 $game-cover-border-width: 3px;
 $game-cover-border-radius: 2px;
 $game-background-size: calc(#{$game-cover-width} - 1px) calc(#{$game-cover-width} - 1px);
-$games-grid-template-columns-size: minmax(180px, 180px);
-$games-gap: 1px;
-$games-clear-width: 90px;
-$games-clear-height: $game-cover-height;
+$game-cover-outer-width: calc(#{$game-cover-width} + #{$game-cover-padding} + #{$game-cover-border-width});
+$games-grid-template-columns-size: minmax($game-cover-outer-width, $game-cover-outer-width);
+$games-gap: 2px;
 $game-width: calc(#{$game-cover-width} + (2 * #{$game-cover-padding}) + (2 * #{$game-cover-border-width}));
 $game-height: $game-width;
-$game-background: repeating-linear-gradient(45deg, #0005, #0005 10px, #CCC5 10px, #CCC5 20px);
-$game-heading-top: -30px;
+$game-heading-top: -28px;
 $game-heading-min-width: $game-cover-width;
 $game-heading-max-width: 200px;
 $game-heading-width-focus: $game-heading-max-width;
@@ -85,20 +94,19 @@ $game-title-color: $robins-egg-blue;
 $game-title-font-size-focus: $font-size-small;
 $game-all-software-width: $game-width;
 $game-all-software-height: $game-height;
-$game-all-software-top: -35px;
+$game-all-software-title-top: -30px;
 $game-all-software-title-color: $robins-egg-blue;
-$game-all-software-icon-width: 96px;
+$game-all-software-title-font-size: $font-size-small;
+$game-all-software-icon-width: 90px;
 $game-all-software-icon-height: $game-all-software-icon-width;
 $game-all-software-icon-border-width: $game-cover-border-width;
-$game-all-software-icon-border-radius: 50%;
 
 
 ////////////////////////////// NAVIGATION //////////////////////////////
 $navigation-gap: 5px;
-$nav-item-icon-width: 48px;
+$nav-item-icon-width: 36px;
 $nav-item-icon-height: $nav-item-icon-width;
 $nav-item-icon-border-width: 3px;
-$nav-item-icon-border-radius: 50%;
 $nav-item-title-width: max-content;
 $nav-item-title-color: $robins-egg-blue;
 $nav-item-title-font-size: $font-size-xs;
@@ -109,19 +117,29 @@ $footer-section-width: calc(#{$screen-width} - (2 * 20px)); // Add margin * 2
 $footer-section-margin: 0 20px;
 $footer-section-border-width: 1px;
 $footer-section-border-color: $white;
-$footer-nintendo-switch-mode-logo-width: 48px;
+$footer-nintendo-switch-mode-logo-width: 36px;
 $footer-controller-hints-gap: 10px;
 
 
-////////////////////////////// CARD //////////////////////////////
-$card-bg-color: $gray;
-$card-width: 200px;
-$card-height: 100px;
-
-
 ////////////////////////////// MISC //////////////////////////////
-$console-button-bg-color: $white;
-$console-button-color: $mine-shaft;
+$broken-image-background: repeating-linear-gradient(45deg, #0005, #0005 10px, #CCC5 10px, #CCC5 20px);
+
+$card-width: 160px;
+$card-height: 80px;
+
+$controller-button-gap: 10px;
+$controller-button-left: $screen-padding-x;
+$controller-button-icon-width: 24px;
+$controller-button-icon-width-small: 16px;
+$controller-button-icon-height: $controller-button-icon-width;
+$controller-button-icon-height-small: $controller-button-icon-width-small;
+$controller-button-icon-bg-color: $white;
+$controller-button-icon-color: $mine-shaft;
+$controller-button-icon-font-weight: $font-weight-semi-bold;
+$controller-button-icon-line-height: $controller-button-icon-height;
+$controller-button-icon-line-height-small: $controller-button-icon-height-small;
+$controller-button-text-font-size: $font-size-regular;
+$controller-button-text-font-size-small: $font-size-xs;
 
 $glowing-border-color-from-hover: $robins-egg-blue;
 $glowing-border-color-to-hover: $ice-cold;

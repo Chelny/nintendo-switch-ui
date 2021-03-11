@@ -25,7 +25,11 @@
       width: $nav-item-icon-width;
       height: $nav-item-icon-height;
       border: $nav-item-icon-border-width solid transparent;
-      border-radius: $nav-item-icon-border-radius;
+      @include border-radius;
+
+      &.shake-animation {
+        @include shaking-border-animation;
+      }
     }
 
     .nav-item-title {

@@ -37,7 +37,7 @@ export default class TimeWiFiBatteryBar extends React.Component {
           <img className="wifi-icon" src={`assets/images/icons/wifi.png`}/>
         </span>
         <span className="battery">
-          98% <img className="battery-icon" src={`assets/images/icons/battery.png`} />
+          100% <img className="battery-icon" src={`assets/images/icons/battery.png`} />
         </span>
       </div>
     );
