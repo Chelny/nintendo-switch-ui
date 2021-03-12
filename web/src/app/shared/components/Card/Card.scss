@@ -5,4 +5,8 @@
   width: $card-width;
   height: $card-height;
   background: $broken-image-background;
+
+  .card__title {
+    background-color: $card-title-bg-color;
+  }
 }

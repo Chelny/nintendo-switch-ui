@@ -1,7 +1,5 @@
-$scale-animation: scale(1.1);
-
 .scale-animation {
-  @include transform($scale-animation);
+  @include transform(scale(1.05));
 }
 
 .box-shadow-animation {

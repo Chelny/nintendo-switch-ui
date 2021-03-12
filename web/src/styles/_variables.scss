@@ -25,6 +25,7 @@ $lock-screen-featured-news-height: $screen-height;
 $lock-screen-featured-news-bg-color: $cod-gray;
 $lock-screen-featured-news-list-gap: 10px;
 $lock-screen-featured-news-list-gap-expanded: 5px;
+$lock-screen-featured-news-list-padding-expanded: 20px 0;
 
 $lock-screen-home-menu-width: calc(#{$screen-width} - (#{$screen-width} / 3));
 $lock-screen-home-menu-width-expanded: $screen-width;
@@ -126,6 +127,7 @@ $broken-image-background: repeating-linear-gradient(45deg, #0005, #0005 10px, #C
 
 $card-width: 160px;
 $card-height: 80px;
+$card-title-bg-color: rgba(0, 0, 0, 0.75);
 
 $controller-button-gap: 10px;
 $controller-button-left: $screen-padding-x;

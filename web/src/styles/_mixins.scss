@@ -84,13 +84,11 @@
   transition: $transition;
 }
 
-@mixin box-shadow-animation($startColor: rgba(0, 0, 0, 0), $endColor: rgba(255, 255, 255, .15)) {
-  @include animation('confirmation .6s');
-  @include keyframes(confirmation) {
+@mixin box-shadow-animation($startColor: rgba(0, 0, 0, 0), $endColor: rgba(0, 195, 227, 0.1)) {
+  @include animation('selected .6s');
+  @include keyframes(selected) {
     from { @include box-shadow(0, 0, 0, 0, $startColor); }
-    to {
-      @include box-shadow(0, 0, 5px, 8px, $endColor);
-    }
+    to { @include box-shadow(0, 0, 10px, 5px, $endColor); }
   }
 }
 

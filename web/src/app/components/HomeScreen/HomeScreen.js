@@ -40,21 +40,21 @@ export default class HomeScreen extends React.Component {
     this.setFocusedElement();
 
     switch (key) {
-      case 65: // A
+      case 65: // A button
       case 97:
         console.log('TODO - A key pressed!', event.which);
         this.setState({});
         break;
-      case 38: // TOP
+      case 38: // TOP button
         this.direction = DIRECTION.TOP;
         break;
-      case 40: // BOTTOM
+      case 40: // BOTTOM button
         this.direction = DIRECTION.BOTTOM;
         break;
-      case 37: // LEFT
+      case 37: // LEFT button
         this.direction = DIRECTION.LEFT;
         break;
-      case 39: // RIGHT
+      case 39: // RIGHT button
         this.direction = DIRECTION.RIGHT;
         break;
       default:
