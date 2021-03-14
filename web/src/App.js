@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.scss";
+import FeaturedNewsScreen from "@components/FeaturedNewsScreen/FeaturedNewsScreen";
 import HomeScreen from "@components/HomeScreen/HomeScreen";
 import LockScreen from "@components/LockScreen/LockScreen";
 import { Screen } from "@shared/enums/Screen";
@@ -8,28 +9,38 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      visible: Screen.Lock
+      activeScreen: Screen.Lock
     }
   }
 
-  setScreen = (screen) => {
-    this.setState({ visible: screen });
-  };
+  handleKeyDown = (event) => {
+    const keyCode = event.which || event.keyCode || 0;
+
+    switch (keyCode) {
+      case 27: // ESC key = power button/back to lockscreen
+        this.setActiveScreen(Screen.Lock);
+        break;
+      default:
+        break;
+    }
+  }
+
+  setActiveScreen = (screen) => {
+    this.setState({ activeScreen: screen });
+  }
 
   render() {
     return (
       <div className="app">
         <h1>Nintendo Switch Home Screen UI (Dark Theme)</h1>
-        <div className="nintendo-switch">
-          <HomeScreen />
+        <div className="nintendo-switch" onKeyDown={this.handleKeyDown}>
+          {/* <HomeScreen /> */}
           {/* TODO: Complete FeaturedNewsScreen */}
-          {/* {this.state.visible === Screen.Home ?
+          {this.state.activeScreen === Screen.Home ?
             <HomeScreen />
-            :
-            this.state.visible === Screen.FeaturedNews ?
-              <FeaturedNewsScreen />
-              :
-              <LockScreen screenChange={this.setScreen} />} */}
+            : this.state.activeScreen === Screen.FeaturedNews ?
+              <FeaturedNewsScreen onKeyDown={this.setActiveScreen} />
+              : <LockScreen onScreenChange={this.setActiveScreen} />}
         </div>
         <p><b>Instructions:</b><br />Use the followings keys: arrow keys, A, B, X and Y.</p>
         <small>This webpage is optimized for desktop only.</small>

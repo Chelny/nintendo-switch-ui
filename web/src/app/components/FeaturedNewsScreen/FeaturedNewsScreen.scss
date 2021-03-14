@@ -1,0 +1,6 @@
+.featured-news-screen {
+  @extend %screen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

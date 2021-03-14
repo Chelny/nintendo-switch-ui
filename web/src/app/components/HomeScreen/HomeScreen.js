@@ -64,12 +64,12 @@ export default class HomeScreen extends React.Component {
 
     // Focus back previously selected item, when clicking outside of console screen
     target.focus();
-  };
+  }
 
   handleKeyDown = (event) => {
-    const key = event.which || event.keyCode || 0;
+    const keyCode = event.which || event.keyCode || 0;
 
-    switch (key) {
+    switch (keyCode) {
       case 37: // LEFT button
         this.handleKeyDownLeft();
         break;
@@ -89,7 +89,7 @@ export default class HomeScreen extends React.Component {
       default:
         break;
     }
-  };
+  }
 
   handleKeyDownLeft = () => {
     if (this.state.activeItem === 0) {
@@ -110,7 +110,7 @@ export default class HomeScreen extends React.Component {
         prevActiveRow: prevState.activeRow
       }));
     }
-  };
+  }
 
   handleKeyDownUp = () => {
     if (this.state.activeRow > ActiveHomeRow.Users) {
@@ -160,7 +160,7 @@ export default class HomeScreen extends React.Component {
         prevActiveItem: prevState.activeItem
       }));
     }
-  };
+  }
 
   handleKeyDownRight = () => {
     switch (this.state.activeRow) {
@@ -198,7 +198,7 @@ export default class HomeScreen extends React.Component {
       default:
         break;
     }
-  };
+  }
 
   handleKeyDownDown = () => {
     if (this.state.activeRow < ActiveHomeRow.Navigation) {
@@ -242,18 +242,18 @@ export default class HomeScreen extends React.Component {
         prevActiveItem: prevState.activeItem
       }));
     }
-  };
+  }
 
   handleKeyDownA = () => {
     // TODO: complete
-  };
+  }
 
   toggleShakeAnimation = () => {
     this.setState({ shakeAnimation: true });
     setTimeout(() => {
       this.setState({ shakeAnimation: false });
     }, 200);
-  };
+  }
 
   render() {
     return (

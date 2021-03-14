@@ -17,6 +17,7 @@ export default class LockScreen extends React.Component {
     this.lockScreenRef = React.createRef();
     this.prevKeyCode = null;
     this.unlockBulletsCount = 3;
+    this.unlockProgressTimeoutId = null;
   }
 
   componentDidMount() {
@@ -25,16 +26,18 @@ export default class LockScreen extends React.Component {
 
   handleBlur = () => {
     this.lockScreenRef.current.focus();
-  };
+  }
 
   handleKeyDown = (event) => {
-    switch (event.which) {
+    const keyCode = event.which || event.keyCode || 0;
+
+    switch (keyCode) {
       case 38: // TOP button
       case 40: // BOTTOM button
       case 37: // LEFT button
       case 39: // RIGHT button
         if ([LockScreenSection.FeaturedNews, LockScreenSection.Home].includes(this.state.expanded)) {
-          this.pressSameButtonThreeTime(event.which);
+          this.pressSameButtonThreeTime(keyCode);
           break;
         }
       case 65: // A button
@@ -42,7 +45,7 @@ export default class LockScreen extends React.Component {
       case 88: // X button
       case 120:
         if ([LockScreenSection.FeaturedNews, LockScreenSection.Home].includes(this.state.expanded)) {
-          this.pressSameButtonThreeTime(event.which);
+          this.pressSameButtonThreeTime(keyCode);
         } else {
           if (this.state.expanded === LockScreenSection.None) {
             this.setState({
@@ -69,25 +72,34 @@ export default class LockScreen extends React.Component {
             expanded: LockScreenSection.FeaturedNews
           });
         } else {
-          this.pressSameButtonThreeTime(event.which);
+          this.pressSameButtonThreeTime(keyCode);
         }
         break;
       default:
         break;
     }
-  };
+  }
 
   pressSameButtonThreeTime = (keyCode) => {
+    clearTimeout(this.unlockProgressTimeoutId);
+
     if (this.prevKeyCode && this.prevKeyCode !== keyCode) {
       // Reset progress if differents buttons are pressed
       this.setState({ unlockProgress: 0 });
       this.prevKeyCode = null;
     } else {
       // Increment progress bar value
-      this.setState({ unlockProgress: this.state.unlockProgress + 1 });
+      this.setState(prevState => ({ unlockProgress: ++prevState.unlockProgress }));
       this.prevKeyCode = keyCode;
+      
+      this.unlockProgressTimeoutId = setTimeout(() => {
+        this.setState({ unlockProgress: 0 });
+        this.prevKeyCode = null;
+      }, 2000);
 
       if (this.state.unlockProgress + 1 === this.unlockBulletsCount) {
+        clearTimeout(this.unlockProgressTimeoutId);
+        
         this.setState({ boxShadowAnimation: true });
 
         setTimeout(() => {
@@ -95,11 +107,11 @@ export default class LockScreen extends React.Component {
         }, 500);
 
         setTimeout(() => {
-          this.props.screenChange(this.state.expanded);
+          this.props.onScreenChange(this.state.expanded);
         }, 700);
       }
     }
-  };
+  }
 
   render() {
     return (

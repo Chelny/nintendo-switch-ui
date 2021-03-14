@@ -19,7 +19,7 @@ export default class Games extends React.Component {
       this.handleScrollOnFocus(this.gamesRef[this.props.activeItem]);
       this.gamesRef[this.props.activeItem].focus();
     }
-  };
+  }
 
   handleScrollOnFocus = (gameEl) => {
     const parentEl = gameEl.closest('section');
@@ -51,7 +51,7 @@ export default class Games extends React.Component {
     if (gameElLeftPos <= parentElLeftLimit || gameElRightPos <= parentElLeftLimit) {
       parentEl.scroll({ left: parentScrollPos - gameElWidth });
     }
-  };
+  }
 
   handleScroll = (event) => {
     const container = event.target;
@@ -74,7 +74,7 @@ export default class Games extends React.Component {
       .map(gameEl => +gameEl.getAttribute('tabIndex'));
     
     this.props.onGamesScroll(gamesInViewport);
-  };
+  }
 
   render() {
     return (
