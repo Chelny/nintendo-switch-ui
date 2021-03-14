@@ -20,12 +20,11 @@ Games, navigation and users data are retreived from server.
 Type `cd web` then, execute `yarn start`. The app should run in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The app has been tested in Chrome, Firefox and Safari so, there should be no worries to use these browsers.
+The app has been tested in Chrome, Firefox and Safari so, there should be no worries to use those browsers.
 
-Make sure to that the browser's viewport is at least 920px large. The app is optimized for desktop only.
+The app is optimized for desktop only.
 
 ## Copyright
 
 Images such as Mii avatars, game covers, navigation buttons and any other Nintendo Switch icons are owned by [Nintendo Co., Ltd](https://www.nintendo.co.jp/).\
 The font used is [FOT-Rodin NTLG Pro](https://archive.org/download/Fontworks/Fonts/).
-
