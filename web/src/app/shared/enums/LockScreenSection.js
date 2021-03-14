@@ -1,5 +1,5 @@
 export const LockScreenSection = {
-  FeaturedNews: "FeaturedNews",
-  Home: "Home",
-  None: "None"
-}
+  FeaturedNews: 'FeaturedNews',
+  Home: 'Home',
+  None: 'None'
+};

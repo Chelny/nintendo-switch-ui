@@ -1,8 +1,11 @@
-.footer {
+.bottom-section {
   display: grid;
   grid-template-columns: repeat(2, max-content);
   align-items: center;
   justify-content: space-between;
+  width: $footer-section-width;
+  margin: $footer-section-margin;
+  border-top: $footer-section-border-width solid $footer-section-border-color;
 
   .nintendo-switch-mode-logo {
     &-handheld {
@@ -12,7 +15,7 @@
 
   .controller-hints {
     display: grid;
+    grid-auto-flow: column;
     gap: $footer-controller-hints-gap;
-    justify-content: flex-end;
   }
 }

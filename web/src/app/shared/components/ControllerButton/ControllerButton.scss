@@ -6,9 +6,12 @@
   justify-content: center;
 
   &.controller-button--small {
+    gap: $controller-button-gap-small;
+
     .controller-button__icon {
       width: $controller-button-icon-width-small;
       height: $controller-button-icon-height-small;
+      font-size: $controller-button-icon-font-size-small;
       line-height: $controller-button-icon-line-height-small;
     }
 
@@ -30,6 +33,6 @@
   .controller-button__text {
     margin: 0;
     font-size: $controller-button-text-font-size;
-    letter-spacing: 1px;
+    letter-spacing: $controller-button-text-letter-spacing;
   }
 }

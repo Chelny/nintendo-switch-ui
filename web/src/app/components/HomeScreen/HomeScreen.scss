@@ -7,27 +7,6 @@
     overflow: hidden;
     display: grid;
     align-items: center;
-    width: inherit;
     box-sizing: border-box;
-  }
-
-  .users-section {
-    padding: $users-section-padding;
-  }
-
-  .games-section {
-    padding: $games-section-padding;
-    -ms-overflow-style: none; // IE and Edge
-    scrollbar-width: none; // Firefox
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  .footer-section {
-    width: $footer-section-width;
-    margin: $footer-section-margin;
-    border-top: $footer-section-border-width solid $footer-section-border-color;
   }
 }

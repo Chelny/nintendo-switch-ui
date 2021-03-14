@@ -1,174 +1,280 @@
 import React from 'react';
 import './HomeScreen.scss';
-import TimeWiFiBatteryBar from '../../shared/components/TimeWiFiBatteryBar/TimeWiFiBatteryBar';
-import UsersSection from './UsersSection';
-import GamesSection from './GamesSection';
-import NavigationSection from './NavigationSection';
-import FooterSection from './FooterSection';
-
-const DIRECTION = {
-  TOP: 'TOP',
-  LEFT: 'LEFT',
-  BOTTOM: 'BOTTOM',
-  RIGHT: 'RIGHT'
-};
+import BottomSection from '@components/HomeScreen/BottomSection/BottomSection';
+import Games from '@components/HomeScreen/Games/Games';
+import Navigation from '@components/HomeScreen/Navigation/Navigation';
+import TopSection from '@components/HomeScreen/TopSection/TopSection';
+import GameService from '@services/GameService';
+import NavigationService from '@services/NavigationService';
+import UserService from '@services/UserService';
+import { ActiveHomeRow } from '@shared/enums/ActiveHomeRow';
 
 export default class HomeScreen extends React.Component {
   constructor() {
     super();
-    this.homeScreenRef = React.createRef();
-    this.usersSectionRef = React.createRef();
-    this.gamesSectionRef = React.createRef();
-    this.navSectionRef = React.createRef();
-    this.footerSectionRef = React.createRef();
+    this.state = {
+      users: [],
+      games: [],
+      navItems: [],
+      activeRow: ActiveHomeRow.Games,
+      activeItem: 0,
+      prevActiveRow: ActiveHomeRow.Games,
+      prevActiveItem: 0,
+      shakeAnimation: false,
+      gamesInViewport: []
+    };
     this.maxVisibleGames = 12;
   }
 
-  handleBlur = (event) => {
-    if (!event.currentTarget.contains(event.relatedTarget)) {
-      const target = event.target;
+  componentDidMount() {
+    UserService.getUsers().then(
+      response => this.setState({ users: response }),
+      error => console.error(error)
+    );
 
-      if (target.hasAttribute('tabIndex')) {
-        target.focus();
-      }
-    }
+    GameService.getGames().then(
+      response => {
+        this.setState({ games: response });
+
+        // Set visible games in viewport
+        const maxElements = this.state.games.length < 4 ? this.state.games.length : 4;
+        const gamesInViewport = [];
+
+        for (var tabIndex = 0; tabIndex < maxElements; tabIndex++) {
+          gamesInViewport.push(tabIndex);
+        }
+
+        this.setState({ gamesInViewport: gamesInViewport });
+      },
+      error => console.error(error)
+    );
+
+    NavigationService.getNavigation().then(
+      response => this.setState({ navItems: response }),
+      error => console.error(error)
+    );
+  }
+
+  handleBlur = () => {
+    const rowClass = this.state.activeRow === ActiveHomeRow.Users ?
+      '.user' : this.state.activeRow === ActiveHomeRow.Navigation ?
+        '.nav-item' : '.game, .all-software';
+    const rowSiblings = document.querySelectorAll(rowClass);
+    const target = Array.from(rowSiblings)[this.state.activeItem];
+
+    // Focus back previously selected item, when clicking outside of console screen
+    target.focus();
   };
 
   handleKeyDown = (event) => {
     const key = event.which || event.keyCode || 0;
 
-    this.setFocusedElement();
-
     switch (key) {
-      case 65: // A button
-      case 97:
-        console.log('TODO - A key pressed!', event.which);
-        this.setState({});
+      case 37: // LEFT button
+        this.handleKeyDownLeft();
         break;
       case 38: // TOP button
-        this.direction = DIRECTION.TOP;
-        break;
-      case 40: // BOTTOM button
-        this.direction = DIRECTION.BOTTOM;
-        break;
-      case 37: // LEFT button
-        this.direction = DIRECTION.LEFT;
+        this.handleKeyDownUp();
         break;
       case 39: // RIGHT button
-        this.direction = DIRECTION.RIGHT;
+        this.handleKeyDownRight();
+        break;
+      case 40: // BOTTOM button
+        this.handleKeyDownDown();
+        break;
+      case 65: // A button
+      case 97:
+        this.handleKeyDownA();
         break;
       default:
         break;
     }
-
-    if (this.direction) {
-      this.setFocusOnElement();
-    }
   };
 
-  setFirstGameFocused = (gamesLoaded) => {
-    if (gamesLoaded) {
-      this.gamesSectionRef.current.gamesRef[0] && this.gamesSectionRef.current.gamesRef[0].focus();
-      this.setFocusedElement();
-    }
-  };
+  handleKeyDownLeft = () => {
+    if (this.state.activeItem === 0) {
+      if (this.state.activeRow === ActiveHomeRow.Games) {
+        const activeItem = this.state.games.length > this.maxVisibleGames ?
+          this.maxVisibleGames : this.state.games.length - 1;
 
-  setFocusedElement = () => {
-    this.focusedElement = document.activeElement;
-
-    if (!this.focusedElement || this.focusedElement == document.body) {
-      this.focusedElement = null;
-    } else if (document.querySelector) {
-      this.focusedElement = document.querySelector(':focus');
-    }
-  };
-
-  setFocusOnElement = () => {
-    let tabIndex = 0;
-
-    switch (this.direction) {
-      case DIRECTION.TOP:
-        // tabIndex = this.focusedElement.tabIndex + 1;
-        break;
-      case DIRECTION.RIGHT:
-        tabIndex = this.focusedElement.tabIndex + 1;
-        break;
-      case DIRECTION.BOTTOM:
-        // tabIndex = this.focusedElement.tabIndex + 1;
-        break;
-      case DIRECTION.LEFT:
-        tabIndex = this.focusedElement.tabIndex - 1;
-        break;
-      default:
-        break;
-    }
-
-    let element = document.querySelector(`[tabindex="${tabIndex}"]`);
-    let loopScrollPos = null;
-
-    if (!element) {
-      if (['game', 'all-software'].some(className => this.focusedElement.classList.contains(className))) {
-        const games = Array.from(document.querySelectorAll('.game'));
-        // Looping allowed with games
-        if (this.direction === DIRECTION.RIGHT) {
-          element = games[0];
-          loopScrollPos = 0;
-        } else if (this.direction === DIRECTION.LEFT) {
-          const allSoftwareEl = document.querySelector('.all-software');
-          element = allSoftwareEl ? allSoftwareEl : games.slice(-1).pop();
-          const parentEl = element.closest('section');
-          loopScrollPos = parentEl.scrollWidth + parentEl.getBoundingClientRect().x;
-        }
+        this.setState(prevState => ({
+          activeItem: activeItem,
+          prevActiveRow: prevState.activeRow
+        }));
       } else {
-        const focusedElIcon = this.focusedElement.querySelector('[class*="-icon"]');
-        focusedElIcon.classList.add('shake-animation');
-        setTimeout(() => {
-          focusedElIcon.classList.remove('shake-animation');
-        }, 200);
-        return;
+        this.toggleShakeAnimation();
       }
+    } else {
+      this.setState(prevState => ({
+        activeItem: --prevState.activeItem,
+        prevActiveRow: prevState.activeRow
+      }));
     }
+  };
 
-    const parentEl = element.closest('section');
-    const parentScrollPos = Math.round(loopScrollPos !== null ? loopScrollPos : parentEl.scrollLeft);
-    const parentElDOMRect = parentEl.getBoundingClientRect();
-    const leftLimit = Math.round(parentElDOMRect.x);
-    const rightLimit = Math.round(leftLimit + 640);
-    const elDOMRect = element.getBoundingClientRect();
-    const elementWidth = Math.round(elDOMRect.width);
-    const elementLeftPos = Math.round(elDOMRect.x);
-    const elementRightPos = Math.round(elementLeftPos + elementWidth);
+  handleKeyDownUp = () => {
+    if (this.state.activeRow > ActiveHomeRow.Users) {
+      let activeItem = 0;
 
-    if (elementLeftPos >= rightLimit || elementRightPos >= rightLimit) {
-      parentEl.scroll({ left: parentScrollPos + elementWidth });
+      if (this.state.activeRow === ActiveHomeRow.Games) {
+        if (this.state.prevActiveRow === ActiveHomeRow.Users) {
+          // Select previously selected user
+          activeItem = this.state.prevActiveItem;
+        } else {
+          // Default behaviour
+          if (this.state.gamesInViewport.includes(this.state.activeItem)) {
+            if (this.state.gamesInViewport.indexOf(this.state.activeItem) > 0) {
+              activeItem = 0;
+            }
+
+            if (this.state.gamesInViewport.indexOf(this.state.activeItem) > 0) {
+              activeItem = this.state.users.length - 1;
+            }
+          }
+        }
+      }
+
+      if (this.state.activeRow === ActiveHomeRow.Navigation) {
+        if (this.state.prevActiveRow === ActiveHomeRow.Games) {
+          // Select previously selected game
+          activeItem = this.state.prevActiveItem;
+        } else {
+          // Default behaviour
+          const lastGameInViewport = this.state.gamesInViewport.length - 1;
+
+          if (this.state.activeItem === 0) {
+            activeItem = this.state.gamesInViewport[0];
+          } else if (this.state.activeItem >= 1 && this.state.activeItem <= 3) {
+            activeItem = this.state.gamesInViewport[1] || lastGameInViewport;
+          } else if (this.state.activeItem >= 4 && this.state.activeItem <= 5) {
+            activeItem = this.state.gamesInViewport[2] || lastGameInViewport;
+          } else {
+            activeItem = lastGameInViewport;
+          }
+        }
+      }
+
+      this.setState(prevState => ({
+        activeRow: --prevState.activeRow,
+        activeItem: activeItem,
+        prevActiveItem: prevState.activeItem
+      }));
     }
+  };
 
-    if (elementLeftPos <= leftLimit || elementRightPos <= leftLimit) {
-      parentEl.scroll({ left: parentScrollPos - elementWidth });
+  handleKeyDownRight = () => {
+    switch (this.state.activeRow) {
+      case ActiveHomeRow.Users:
+        if (this.state.activeItem < this.state.users.length - 1) {
+          this.setState(prevState => ({
+            activeItem: ++prevState.activeItem,
+            prevActiveRow: prevState.activeRow
+          }));
+        } else {
+          this.toggleShakeAnimation();
+        }
+        break;
+      case ActiveHomeRow.Games:
+        const lastGameRef = this.state.games.length > this.maxVisibleGames ?
+          this.maxVisibleGames : this.state.games.length - 1;
+  
+        this.state.activeItem === lastGameRef ?
+          this.setState({ activeItem: 0 }) :
+          this.setState(prevState => ({
+            activeItem: ++prevState.activeItem,
+            prevActiveRow: prevState.activeRow
+          }));
+        break;
+      case ActiveHomeRow.Navigation:
+        if (this.state.activeItem < this.state.navItems.length - 1) {
+          this.setState(prevState => ({
+            activeItem: ++prevState.activeItem,
+            prevActiveRow: prevState.activeRow
+          }));
+        } else {
+          this.toggleShakeAnimation();
+        }
+        break;
+      default:
+        break;
     }
+  };
 
-    element.focus();
+  handleKeyDownDown = () => {
+    if (this.state.activeRow < ActiveHomeRow.Navigation) {
+      let activeItem = 0;
+
+      if (this.state.activeRow === ActiveHomeRow.Users) {
+        if (this.state.prevActiveRow === ActiveHomeRow.Games) {
+          // Select previously selected game
+          activeItem = this.state.prevActiveItem;
+        } else {
+          // Default behaviour
+          if (this.state.activeItem < 4) {
+            activeItem = this.state.gamesInViewport[0];
+          } else {
+            activeItem = this.state.gamesInViewport[1] || this.state.gamesInViewport[this.state.gamesInViewport.length - 1];
+          }
+        }
+      }
+
+      if (this.state.activeRow === ActiveHomeRow.Games) {
+        if (this.state.prevActiveRow === ActiveHomeRow.Navigation) {
+          // Select previously selected navigation item
+          activeItem = this.state.prevActiveItem;
+        } else {
+          // Default behaviour
+          if (this.state.activeItem === this.state.gamesInViewport[0]) {
+            activeItem = 0;
+          } else if (this.state.activeItem === this.state.gamesInViewport[1]) {
+            activeItem = 2;
+          } else if (this.state.activeItem === this.state.gamesInViewport[2]) {
+            activeItem = 4;
+          } else {
+            activeItem = 6;
+          }
+        }
+      }
+
+      this.setState(prevState => ({
+        activeRow: ++prevState.activeRow,
+        activeItem: activeItem,
+        prevActiveItem: prevState.activeItem
+      }));
+    }
+  };
+
+  handleKeyDownA = () => {
+    // TODO: complete
+  };
+
+  toggleShakeAnimation = () => {
+    this.setState({ shakeAnimation: true });
+    setTimeout(() => {
+      this.setState({ shakeAnimation: false });
+    }, 200);
   };
 
   render() {
     return (
-      <div className="home-screen" ref={this.homeScreenRef}
-        onBlur={this.handleBlur} onKeyDown={this.handleKeyDown}>
-        <section className="users-section">
-          <TimeWiFiBatteryBar />
-          <UsersSection tabIndexGroup={10} ref={this.usersSectionRef} />
-        </section>
-        <section className="games-section">
-          <GamesSection tabIndexGroup={40} ref={this.gamesSectionRef}
-            maxVisibleGames={this.maxVisibleGames}
-            gamesLoaded={this.setFirstGameFocused} />
-        </section>
-        <section className="navigation-section">
-          <NavigationSection tabIndexGroup={80} ref={this.navSectionRef} />
-        </section>
-        <section className="footer-section">
-          <FooterSection ref={this.footerSectionRef} />
-        </section>
+      <div className="home-screen" onBlur={this.handleBlur} onKeyDown={this.handleKeyDown}>
+        <TopSection
+          users={this.state.users}
+          activeRow={this.state.activeRow === ActiveHomeRow.Users}
+          activeItem={this.state.activeItem}
+          shakeAnimation={this.state.shakeAnimation} />
+        <Games
+          games={this.state.games}
+          activeRow={this.state.activeRow === ActiveHomeRow.Games}
+          activeItem={this.state.activeItem}
+          maxVisibleGames={this.maxVisibleGames}
+          onGamesScroll={gameTabIndexes => this.setState({ gamesInViewport: gameTabIndexes })} />
+        <Navigation
+          navItems={this.state.navItems}
+          activeRow={this.state.activeRow === ActiveHomeRow.Navigation}
+          activeItem={this.state.activeItem}
+          shakeAnimation={this.state.shakeAnimation} />
+        <BottomSection activeRow={this.state.activeRow} />
       </div>
     );
   }

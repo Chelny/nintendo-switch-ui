@@ -38,6 +38,10 @@ $unlock-bar-gap: 10px;
 $unlock-bar-width: inherit;
 $unlock-bar-height: 70px;
 $unlock-bar-font-weight: $font-weight-regular;
+$unlock-bar-bullet-gap: 15px;
+$unlock-bar-bullet-width: 4px;
+$unlock-bar-bullet-height: $unlock-bar-bullet-width;
+$unlock-bar-bullet-border-width: 2px;
 $unlock-bar-bullet-border-color: $white;
 $unlock-bar-bullet-bg-color-active: $white;
 
@@ -76,14 +80,14 @@ $games-section-padding: 20px 0 0 40px;
 $game-cover-width: 136px;
 $game-cover-height: $game-cover-width;
 $game-cover-padding: 1px;
-$game-cover-border-width: 3px;
+$game-cover-border-width: 4px;
+$game-cover-border-width-focus: 3px;
 $game-cover-border-radius: 2px;
 $game-background-size: calc(#{$game-cover-width} - 1px) calc(#{$game-cover-width} - 1px);
-$game-cover-outer-width: calc(#{$game-cover-width} + #{$game-cover-padding} + #{$game-cover-border-width});
-$games-grid-template-columns-size: minmax($game-cover-outer-width, $game-cover-outer-width);
-$games-gap: 2px;
-$game-width: calc(#{$game-cover-width} + (2 * #{$game-cover-padding}) + (2 * #{$game-cover-border-width}));
+$game-cover-outer-width: calc(#{$game-cover-width} + (2 * #{$game-cover-padding}) + (2 * #{$game-cover-border-width}));
+$game-width: $game-cover-outer-width;
 $game-height: $game-width;
+$game-margin: 0 calc(-2 * #{$game-cover-padding});
 $game-heading-top: -28px;
 $game-heading-min-width: $game-cover-width;
 $game-heading-max-width: 200px;
@@ -100,7 +104,9 @@ $game-all-software-title-color: $robins-egg-blue;
 $game-all-software-title-font-size: $font-size-small;
 $game-all-software-icon-width: 90px;
 $game-all-software-icon-height: $game-all-software-icon-width;
-$game-all-software-icon-border-width: $game-cover-border-width;
+$game-all-software-icon-border-width: $game-cover-border-width-focus;
+$games-clear-width: 40px;
+$games-clear-height: $game-cover-outer-width;
 
 
 ////////////////////////////// NAVIGATION //////////////////////////////
@@ -119,7 +125,26 @@ $footer-section-margin: 0 20px;
 $footer-section-border-width: 1px;
 $footer-section-border-color: $white;
 $footer-nintendo-switch-mode-logo-width: 36px;
-$footer-controller-hints-gap: 10px;
+$footer-controller-hints-gap: 20px;
+
+
+////////////////////////////// CONTROLLER BUTTON //////////////////////////////
+$controller-button-gap: 10px;
+$controller-button-gap-small: 5px;
+$controller-button-left: $screen-padding-x;
+$controller-button-icon-width: 24px;
+$controller-button-icon-width-small: 12px;
+$controller-button-icon-height: $controller-button-icon-width;
+$controller-button-icon-height-small: $controller-button-icon-width-small;
+$controller-button-icon-bg-color: $white;
+$controller-button-icon-color: $mine-shaft;
+$controller-button-icon-font-size-small: $font-size-xxs;
+$controller-button-icon-font-weight: $font-weight-semi-bold;
+$controller-button-icon-line-height: $controller-button-icon-height;
+$controller-button-icon-line-height-small: $controller-button-icon-height-small;
+$controller-button-text-font-size: $font-size-regular;
+$controller-button-text-font-size-small: $font-size-xs;
+$controller-button-text-letter-spacing: 1px;
 
 
 ////////////////////////////// MISC //////////////////////////////
@@ -128,20 +153,6 @@ $broken-image-background: repeating-linear-gradient(45deg, #0005, #0005 10px, #C
 $card-width: 160px;
 $card-height: 80px;
 $card-title-bg-color: rgba(0, 0, 0, 0.75);
-
-$controller-button-gap: 10px;
-$controller-button-left: $screen-padding-x;
-$controller-button-icon-width: 24px;
-$controller-button-icon-width-small: 16px;
-$controller-button-icon-height: $controller-button-icon-width;
-$controller-button-icon-height-small: $controller-button-icon-width-small;
-$controller-button-icon-bg-color: $white;
-$controller-button-icon-color: $mine-shaft;
-$controller-button-icon-font-weight: $font-weight-semi-bold;
-$controller-button-icon-line-height: $controller-button-icon-height;
-$controller-button-icon-line-height-small: $controller-button-icon-height-small;
-$controller-button-text-font-size: $font-size-regular;
-$controller-button-text-font-size-small: $font-size-xs;
 
 $glowing-border-color-from-hover: $robins-egg-blue;
 $glowing-border-color-to-hover: $ice-cold;

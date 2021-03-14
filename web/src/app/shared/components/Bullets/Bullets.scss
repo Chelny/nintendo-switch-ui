@@ -1,14 +1,14 @@
 .bullets {
   display: grid;
   grid-template-columns: repeat(3, max-content);
-  gap: 15px;
+  gap: $unlock-bar-bullet-gap;
   justify-content: center;
 
   .bullet {
-    border: 2px solid $unlock-bar-bullet-border-color;
+    width: $unlock-bar-bullet-width;
+    height: $unlock-bar-bullet-height;
+    border: $unlock-bar-bullet-border-width solid $unlock-bar-bullet-border-color;
     @include border-radius;
-    width: 4px;
-    height: 4px;
 
     &--filled {
       background-color: $unlock-bar-bullet-bg-color-active;

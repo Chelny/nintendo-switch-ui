@@ -1,7 +1,7 @@
 import React from "react";
 import "./UnlockBar.scss";
-import Bullets from "../Bullets/Bullets";
-import ControllerButton from "../ControllerButton/ControllerButton";
+import Bullets from "@shared/components/Bullets/Bullets";
+import ControllerButton from "@shared/components/ControllerButton/ControllerButton";
 
 export default class UnlockBar extends React.Component {
   constructor(props) {

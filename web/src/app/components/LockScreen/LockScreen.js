@@ -1,8 +1,8 @@
 import React from 'react';
 import './LockScreen.scss';
-import { LockScreenSection } from '../../shared/enums/LockScreenSection';
-import FeaturedNewsSection from './FeaturedNewsSection';
-import HomeMenuSection from './HomeMenuSection';
+import FeaturedNews from '@components/LockScreen/FeaturedNews/FeaturedNews';
+import HomeMenu from '@components/LockScreen/HomeMenu/HomeMenu';
+import { LockScreenSection } from '@shared/enums/LockScreenSection';
 
 export default class LockScreen extends React.Component {
   constructor() {
@@ -105,8 +105,8 @@ export default class LockScreen extends React.Component {
     return (
       <div className="lock-screen" tabIndex="0" ref={this.lockScreenRef}
         onBlur={this.handleBlur} onKeyDown={this.handleKeyDown}>
-        <FeaturedNewsSection {...this.state} unlockBulletsCount={this.unlockBulletsCount} />
-        <HomeMenuSection {...this.state} unlockBulletsCount={this.unlockBulletsCount} />
+        <FeaturedNews {...this.state} unlockBulletsCount={this.unlockBulletsCount} />
+        <HomeMenu {...this.state} unlockBulletsCount={this.unlockBulletsCount} />
       </div>
     );
   }

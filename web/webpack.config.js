@@ -40,7 +40,7 @@ const configuration = {
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        exclude: path.resolve(__dirname, '**/module.css'),
+        exclude: path.resolve(__dirname, 'node_modules'),
         use: [
           {
             // After all CSS loaders we use plugin to do his work.
@@ -98,9 +98,15 @@ const configuration = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      fonts: path.resolve(__dirname, 'src/fonts'),
-      images: path.resolve(__dirname, 'src/images')
-    }
+      '@components': path.resolve(__dirname, 'src/app/components/'),
+      '@services': path.resolve(__dirname, 'src/app/services/'),
+      '@shared': path.resolve(__dirname, 'src/app/shared/'),
+      '@fonts': path.resolve(__dirname, 'src/fonts/'),
+      '@images': path.resolve(__dirname, 'src/images/')
+    },
+    modules: [
+      path.join(__dirname, 'node_modules')
+    ]
   },
 
   plugins: [

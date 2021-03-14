@@ -1,4 +1,4 @@
-@mixin animation($animation) {
+@mixin animation($animation...) {
   -webkit-animation: #{$animation};
   -moz-animation: #{$animation};
   -ms-animation: #{$animation};
@@ -97,20 +97,24 @@
 //  GLOBAL ANIMATIONS
 //
 //////////////////////////////////////////////////
-
-@mixin glowing-border-animation() {
-  @include animation(glow .5s ease-in-out infinite alternate);
+@mixin glow-keyframes {
   @include keyframes(glow) {
     from { border-color: $glowing-border-color-from-hover; }
     to { border-color: $glowing-border-color-to-hover; }
   }
 }
 
-@mixin shaking-border-animation() {
-  @include animation(shake 0.2s);
+@mixin glowing-border-animation {
+  @include animation(glow .5s ease-in-out infinite alternate);
+  @include glow-keyframes;
+}
+
+@mixin shaking-border-animation {
+  @include animation(shake 0.2s, glow .5s ease-in-out infinite alternate);
   @include keyframes(shake) {
     10% { @include transform(translate(-1px, 0)); }
     25% { @include transform(translate(2px, 0)); }
     75% { @include transform(translate(-2px, 0)); }
   }
+  @include glow-keyframes;
 }

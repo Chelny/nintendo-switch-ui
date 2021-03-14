@@ -1,13 +1,19 @@
 .games {
   display: grid;
-  grid-template-columns: repeat(auto-fill, $games-grid-template-columns-size);
   grid-auto-flow: column;
-  gap: $games-gap;
+  padding: $games-section-padding;
+  -ms-overflow-style: none; // IE and Edge
+  scrollbar-width: none; // Firefox
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .game {
     position: relative;
     width: $game-width;
     height: $game-height;
+    margin: $game-margin;
     background: $broken-image-background;
     background-position: center center;
     background-size: $game-background-size;
@@ -29,7 +35,7 @@
           .game-title {
             display: inline-block;
             padding-right: $game-title-long-padding-right;
-            @include animation(marquee 10s linear 2s infinite);
+            @include animation(marquee 15s linear 2s infinite);
 
             &::after {
               content: attr(data-text);
@@ -53,6 +59,8 @@
       }
 
       .game-cover {
+        margin: 1px; // Fix prevent moving content because of different border-width
+        border-width: $game-cover-border-width-focus;
         @include glowing-border-animation;
       }
     }
@@ -96,7 +104,7 @@
         @include glowing-border-animation;
 
         &.clicked {
-          background-image: url("~images/icons/all-software-clicked.png");
+          background-image: url("@images/icons/all-software-clicked.png");
         }
 
         .all-software-title {
@@ -111,20 +119,25 @@
       height: $game-all-software-icon-height;
       border: $game-all-software-icon-border-width solid transparent;
       @include border-radius;
-      background-image: url("~images/icons/all-software.png");
+      background-image: url("@images/icons/all-software.png");
       background-size: cover;
       background-repeat: no-repeat;
 
       .all-software-title {
         display: none;
         position: absolute;
-        left: 50%;
         top: $game-all-software-title-top;
+        left: 50%;
         color: $game-all-software-title-color;
         font-size: $game-all-software-title-font-size;
         white-space: nowrap;
         @include transform(translateX(-50%));
       }
     }
+  }
+
+  .clear {
+    width: $games-clear-width;
+    height: $games-clear-height;
   }
 }

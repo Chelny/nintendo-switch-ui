@@ -1,5 +1,5 @@
 export const Screen = {
-  FeaturedNews: "FeaturedNews",
-  Home: "Home",
-  Lock: "Lock"
-}
+  FeaturedNews: 'FeaturedNews',
+  Home: 'Home',
+  Lock: 'Lock'
+};

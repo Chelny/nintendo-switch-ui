@@ -1,3 +1,7 @@
+.top-section {
+  padding: $users-section-padding;
+}
+
 .users {
   display: grid;
   grid-template-rows: repeat(auto-fill, $users-grid-template-rows-size);
