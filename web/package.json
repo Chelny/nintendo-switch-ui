@@ -5,14 +5,13 @@
   "description": "Nintendo Switch UI dark theme",
   "keywords": [
     "Nintendo",
-    "UI",
+    "Switch",
     "dark",
     "theme",
-    "game",
-    "console"
+    "UI"
   ],
   "author": "Chelny Duplan",
-  "homepage": "http://localhost:3000",
+  "homepage": "https://chelny.github.io/nintendo-switch-ui",
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "react-scripts build",
