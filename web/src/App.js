@@ -1,9 +1,9 @@
-import React from "react";
-import "./App.scss";
-import FeaturedNewsScreen from "@components/FeaturedNewsScreen/FeaturedNewsScreen";
-import HomeScreen from "@components/HomeScreen/HomeScreen";
-import LockScreen from "@components/LockScreen/LockScreen";
-import { Screen } from "@shared/enums/Screen";
+import React from 'react';
+import './App.scss';
+import FeaturedNewsScreen from '@components/FeaturedNewsScreen/FeaturedNewsScreen';
+import HomeScreen from '@components/HomeScreen/HomeScreen';
+import LockScreen from '@components/LockScreen/LockScreen';
+import { Screen } from '@shared/enums/Screen';
 
 export default class App extends React.Component {
   constructor() {

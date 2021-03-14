@@ -1,9 +1,9 @@
-import React from "react";
-import "./HomeMenu.scss";
-import { LockScreenSection } from "@shared/enums/LockScreenSection";
-import ControllerButton from "@shared/components/ControllerButton/ControllerButton";
-import TimeWiFiBatteryBar from "@shared/components/TimeWiFiBatteryBar/TimeWiFiBatteryBar";
-import UnlockBar from "@shared/components/UnlockBar/UnlockBar";
+import React from 'react';
+import './HomeMenu.scss';
+import { LockScreenSection } from '@shared/enums/LockScreenSection';
+import ControllerButton from '@shared/components/ControllerButton/ControllerButton';
+import TimeWiFiBatteryBar from '@shared/components/TimeWiFiBatteryBar/TimeWiFiBatteryBar';
+import UnlockBar from '@shared/components/UnlockBar/UnlockBar';
 
 export default class HomeMenu extends React.Component {
   constructor(props) {

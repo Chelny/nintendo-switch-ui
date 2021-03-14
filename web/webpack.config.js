@@ -98,15 +98,13 @@ const configuration = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      '@components': path.resolve(__dirname, 'src/app/components/'),
-      '@services': path.resolve(__dirname, 'src/app/services/'),
-      '@shared': path.resolve(__dirname, 'src/app/shared/'),
-      '@fonts': path.resolve(__dirname, 'src/fonts/'),
-      '@images': path.resolve(__dirname, 'src/images/')
+      '@components': path.resolve(__dirname, '/src/app/components'),
+      '@services': path.resolve(__dirname, '/src/app/services'),
+      '@shared': path.resolve(__dirname, '/src/app/shared'),
+      '@fonts': path.resolve(__dirname, '/src/fonts'),
+      '@images': path.resolve(__dirname, '/src/images')
     },
-    modules: [
-      path.join(__dirname, 'node_modules')
-    ]
+    modules: [path.resolve(__dirname, 'src'), 'node_modules']
   },
 
   plugins: [

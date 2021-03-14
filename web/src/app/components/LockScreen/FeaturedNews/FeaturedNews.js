@@ -1,10 +1,10 @@
-import React from "react";
-import "./FeaturedNews.scss";
-import FeaturedNewsService from "@services/FeaturedNewsService";
-import Card from "@shared/components/Card/Card";
-import ControllerButton from "@shared/components/ControllerButton/ControllerButton";
-import UnlockBar from "@shared/components/UnlockBar/UnlockBar";
-import { LockScreenSection } from "@shared/enums/LockScreenSection";
+import React from 'react';
+import './FeaturedNews.scss';
+import FeaturedNewsService from '@services/FeaturedNewsService';
+import Card from '@shared/components/Card/Card';
+import ControllerButton from '@shared/components/ControllerButton/ControllerButton';
+import UnlockBar from '@shared/components/UnlockBar/UnlockBar';
+import { LockScreenSection } from '@shared/enums/LockScreenSection';
 
 export default class FeaturedNews extends React.Component {
   constructor(props) {

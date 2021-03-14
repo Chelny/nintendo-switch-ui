@@ -99,7 +99,7 @@ export default class LockScreen extends React.Component {
 
       if (this.state.unlockProgress + 1 === this.unlockBulletsCount) {
         clearTimeout(this.unlockProgressTimeoutId);
-        
+
         this.setState({ boxShadowAnimation: true });
 
         setTimeout(() => {
