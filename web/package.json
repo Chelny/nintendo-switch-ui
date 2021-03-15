@@ -11,10 +11,12 @@
     "UI"
   ],
   "author": "Chelny Duplan",
-  "homepage": "https://chelny.github.io/nintendo-switch-ui",
+  "homepage": "http://chelny.github.io/nintendo-switch-ui",
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -43,6 +45,7 @@
     "copy-webpack-plugin": "7.0.0",
     "css-loader": "5.0.2",
     "file-loader": "6.2.0",
+    "gh-pages": "3.1.0",
     "html-webpack-plugin": "5.2.0",
     "mini-css-extract-plugin": "1.3.8",
     "sass-loader": "11.0.1",
