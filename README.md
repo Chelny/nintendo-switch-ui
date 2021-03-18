@@ -1,5 +1,7 @@
 # Nintendo Switch UI (Dark Theme)
 
+![Nintendo Switch UI demonstration](./web/src/images/app-demo.gif?raw=true)
+
 This project demonstrates the UI and some functionalities of the Nintendo Switch. The technologies used are HTML, Javascript (React), CSS (Sass) and Node.js.
 
 ## Run the app locally
