@@ -113,8 +113,7 @@ const configuration = {
     }),
     new HtmlWebpackPlugin({
       inject: true,
-      template: './public/index.html',
-      favicon: './public/favicon.ico'
+      template: './public/index.html'
     }),
     new CopyWebpackPlugin({
       patterns: [
