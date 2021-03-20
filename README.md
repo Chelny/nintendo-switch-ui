@@ -12,6 +12,8 @@ Open 2 terminals in the root directory then...
 
 ### 2- Start server
 
+> _**NOTE:** You may skip this step if you're using the online API. In `web/src/app/Constants.js`, the stub API URL can be uncommented if you want to use it instead. By default, the online API URL is being used._
+
 Type `cd server` then, execute `npm run dev`.
 Open [http://localhost:3001](http://localhost:3001) in the browser to see if the server has successfully started. "The server is running." should be displayed. 
 
