@@ -59,13 +59,13 @@ const configuration = {
           {
             loader: 'sass-resources-loader',
             options: {
-              resources: './src/styles/styles.scss'
+              resources: path.resolve(__dirname, 'src/styles/styles.scss')
             }
           }
         ]
       },
       {
-        test: /\.(gif|ico|jpe?g|png|svg)$/,
+        test: /\.(gif|jpe?g|png|svg)$/,
         exclude: path.resolve(__dirname, 'node_modules'),
         use: [
           {
@@ -96,15 +96,18 @@ const configuration = {
   },
 
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.css', '.scss'],
     alias: {
-      '@components': path.resolve(__dirname, '/src/app/components'),
-      '@services': path.resolve(__dirname, '/src/app/services'),
-      '@shared': path.resolve(__dirname, '/src/app/shared'),
-      '@fonts': path.resolve(__dirname, '/src/fonts'),
-      '@images': path.resolve(__dirname, '/src/images')
+      '@components': path.resolve(__dirname, 'src/app/components'),
+      '@services': path.resolve(__dirname, 'src/app/services'),
+      '@shared': path.resolve(__dirname, 'src/app/shared'),
+      '@fonts': path.resolve(__dirname, 'src/fonts'),
+      '@images': path.resolve(__dirname, 'src/images')
     },
-    modules: [path.resolve(__dirname, 'src'), 'node_modules']
+    modules: [
+      path.resolve(__dirname, 'src'),
+      path.resolve(__dirname, 'node_modules')
+    ]
   },
 
   plugins: [
@@ -113,10 +116,16 @@ const configuration = {
     }),
     new HtmlWebpackPlugin({
       inject: true,
-      template: './public/index.html'
+      title : 'Nintendo Switch UI',
+      template: './public/index.html',
+      manifest: './public/manifest.json'
     }),
     new CopyWebpackPlugin({
       patterns: [
+        {
+          from: './public/favicon.ico',
+          to: './favicon.ico'
+        },
         {
           from: './src/images',
           to: 'assets/images'

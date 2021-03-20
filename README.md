@@ -4,6 +4,8 @@
 
 This project demonstrates the UI and some functionalities of the Nintendo Switch. The technologies used are HTML, Javascript (React), CSS (Sass) and Node.js.
 
+[Live demo](https://chelny.github.io/nintendo-switch-ui/)
+
 ## Run the app locally
 
 ### 1- Clone the project on your computer
