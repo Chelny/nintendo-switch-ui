@@ -9,7 +9,7 @@ const configuration = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'assets/js/[name].js',
     publicPath: '/'
   },
 
@@ -109,7 +109,7 @@ const configuration = {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'bundle.css'
+      filename: 'assets/css/[name].css'
     }),
     new HtmlWebpackPlugin({
       inject: true,
