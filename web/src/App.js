@@ -34,17 +34,15 @@ export default class App extends React.Component {
       <div className="app">
         <h1>Nintendo Switch Home Screen UI (Dark Theme)</h1>
         <div className="nintendo-switch" onKeyDown={this.handleKeyDown}>
-          {/* <HomeScreen /> */}
-          {/* TODO: Complete FeaturedNewsScreen */}
           {this.state.activeScreen === Screen.Home ?
             <HomeScreen />
             : this.state.activeScreen === Screen.FeaturedNews ?
               <FeaturedNewsScreen onKeyDown={this.setActiveScreen} />
               : <LockScreen onScreenChange={this.setActiveScreen} />}
         </div>
-        <p><b>Instructions:</b><br />Use the followings keys: arrow keys, A, B, X and Y.</p>
+        <p><b>Instructions:</b><br />Use the following keys: arrow keys, A, B, X and Y.</p>
         <small>This webpage is optimized for desktop only.</small>
-        <p>Made with React by <a href="https://linkedin.com/in/chelny" target="_blank" rel="noreferrer">Chelny</a>.</p>
+        <p>Made by <a href="https://github.com/chelny" target="_blank" rel="noreferrer">Chelny</a>.</p>
       </div>
     );
   }

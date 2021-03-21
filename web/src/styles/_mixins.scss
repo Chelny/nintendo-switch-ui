@@ -69,6 +69,14 @@
   zoom: 1;
 }
 
+@mixin safari-polyfill() {
+  @media not all and (min-resolution: .001dpcm) {
+    @supports (-webkit-appearance: none) {
+      @content;
+    }
+  }
+}
+
 @mixin transform($transforms) {
   -webkit-transform: $transforms;
   -moz-transform: $transforms;

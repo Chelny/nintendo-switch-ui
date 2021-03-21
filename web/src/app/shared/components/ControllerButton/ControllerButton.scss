@@ -13,6 +13,10 @@
       height: $controller-button-icon-height-small;
       font-size: $controller-button-icon-font-size-small;
       line-height: $controller-button-icon-line-height-small;
+
+      @include safari-polyfill {
+        line-height: .9;
+      }
     }
 
     .controller-button__text {
