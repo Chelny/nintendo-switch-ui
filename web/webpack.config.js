@@ -10,7 +10,7 @@ const configuration = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'assets/js/[name].js',
-    publicPath: '/'
+    publicPath: './'
   },
 
   module: {
@@ -72,6 +72,7 @@ const configuration = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
+              publicPath: '../../assets/images',
               outputPath: 'assets/images',
               limit: 15000
             }
@@ -86,6 +87,7 @@ const configuration = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
+              publicPath: '../../assets/fonts',
               outputPath: 'assets/fonts',
               limit: 10000
             }
@@ -102,7 +104,7 @@ const configuration = {
       '@services': path.resolve(__dirname, 'src/app/services'),
       '@shared': path.resolve(__dirname, 'src/app/shared'),
       '@fonts': path.resolve(__dirname, 'src/fonts'),
-      '@images': path.resolve(__dirname, 'src/images')
+      '@images': path.join(__dirname, 'src/images')
     },
     modules: [
       path.resolve(__dirname, 'src'),
@@ -125,10 +127,6 @@ const configuration = {
         {
           from: './public/favicon.ico',
           to: './favicon.ico'
-        },
-        {
-          from: './src/images',
-          to: 'assets/images'
         }
       ]
     }),
