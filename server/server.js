@@ -16,6 +16,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
+app.get(`${API_URL}/joycon-themes`, (req, res) => {
+  res.json(dataFile('joycon-themes'));
+});
+
 app.get(`${API_URL}/featured-news`, (req, res) => {
   res.json(dataFile('featured-news'));
 });

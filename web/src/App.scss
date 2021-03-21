@@ -5,13 +5,361 @@
 }
 
 .nintendo-switch {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
   margin: 0 auto;
-  border: $nintendo-switch-border-width solid $nintendo-switch-border-color;
-  border-left-width: $nintendo-switch-border-left-width;
-  border-right-width: $nintendo-switch-border-right-width;
-  @include border-radius($nintendo-switch-border-radius);
-  background-color: $screen-bg-color;
-  color: $nintendo-switch-color;
-  font-family: $nintendo-switch-font-family;
-  @extend %disable-selection;
+
+  .nintendo-switch__body {
+    padding: $nintendo-switch-body-padding;
+    background-color: $nintendo-switch-body-bg-color;
+
+    .nintendo-switch__screen {
+      border: $nintendo-switch-screen-border-width solid $nintendo-switch-screen-border-color;
+      border-left-width: $nintendo-switch-screen-border-left-width;
+      border-right-width: $nintendo-switch-screen-border-right-width;
+      @include border-radius($nintendo-switch-screen-border-radius);
+      background-color: $nintendo-switch-screen-bg-color;
+      color: $nintendo-switch-screen-color;
+      font-family: $nintendo-switch-screen-font-family;
+      @extend %disable-selection;
+    }
+  }
+}
+
+.nintendo-switch__joycon {
+  display: grid;
+  grid-template-rows: repeat(4, max-content);
+  gap: $nintendo-switch-joycon-gap;
+  width: $nintendo-switch-joycon-width;
+  height: $nintendo-switch-joycon-height;
+  background-color: $joycon-gray-bg-color;
+
+  &.left {
+    position: relative;
+    border-top-left-radius: $nintendo-switch-joycon-border-radius;
+    border-bottom-left-radius: $nintendo-switch-joycon-border-radius;
+  }
+
+  &.right {
+    position: relative;
+    border-top-right-radius: $nintendo-switch-joycon-border-radius;
+    border-bottom-right-radius: $nintendo-switch-joycon-border-radius;
+  }
+
+  & > div {
+    cursor: pointer;
+  }
+
+  .minus {
+    justify-self: flex-end;
+    width: $nintendo-switch-joycon-button-minus-plus-width;
+    height: $nintendo-switch-joycon-button-minus-plus-height;
+    margin: $nintendo-switch-joycon-button-minus-plus-margin;
+
+    &::before {
+      content: " ";
+      display: inline-block;
+      width: $nintendo-switch-joycon-button-minus-plus-length;
+      height: $nintendo-switch-joycon-button-minus-plus-thickness;
+      background-color: $nintendo-switch-joycon-button-bg-color;
+    }
+  }
+
+  .plus {
+    position: relative;
+    width: $nintendo-switch-joycon-button-minus-plus-width;
+    height: $nintendo-switch-joycon-button-minus-plus-height;
+    margin: $nintendo-switch-joycon-button-minus-plus-margin;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: inline-block;
+      width: $nintendo-switch-joycon-button-minus-plus-length;
+      height: $nintendo-switch-joycon-button-minus-plus-thickness;
+      background-color: $nintendo-switch-joycon-button-bg-color;
+      @include transform(translateY(-50%));
+    }
+
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      display: inline-block;
+      width: $nintendo-switch-joycon-button-minus-plus-thickness;
+      height: $nintendo-switch-joycon-button-minus-plus-length;
+      background-color: $nintendo-switch-joycon-button-bg-color;
+      @include transform(translateX(-50%));
+    }
+  }
+
+  .analog-stick {
+    justify-self: center;
+    width: $nintendo-switch-joycon-button-analog-stick-width;
+    height: $nintendo-switch-joycon-button-analog-stick-height;
+    @include border-radius;
+    @include box-shadow($nintendo-switch-joycon-button-analog-stick-box-shadow);
+    background-color: $nintendo-switch-joycon-button-bg-color;
+  }
+
+  .button-group {
+    position: relative;
+    height: $nintendo-switch-joycon-button-group-height;
+    margin: $nintendo-switch-joycon-button-group-margin;
+
+    & > div {
+      position: absolute;
+      display: grid;
+      width: $nintendo-switch-joycon-button-group-button-width;
+      height: $nintendo-switch-joycon-button-group-button-height;
+      @include border-radius;
+      background-color: $nintendo-switch-joycon-button-bg-color;
+
+      &::after {
+        place-self: center;
+      }
+    }
+
+    .arrow {
+      color: $nintendo-switch-joycon-button-group-arrow-color;
+
+      &.top {
+        @extend %top;
+
+        &::after {
+          content: "\25B2";
+        }
+      }
+
+      &.right {
+        @extend %right;
+
+        &::after {
+          content: "\25B6";
+        }
+      }
+
+      &.bottom {
+        @extend %bottom;
+
+        &::after {
+          content: "\25BC";
+        }
+      }
+
+      &.left {
+        @extend %left;
+
+        &::after {
+          content: "\25C0";
+        }
+      }
+    }
+
+    .letter {
+      color: $nintendo-switch-joycon-button-group-letter-color;
+
+      &[data-button=X] {
+        @extend %top;
+
+        &::after {
+          content: attr(data-button);
+          @include opacity(.75);
+        }
+      }
+
+      &[data-button=A] {
+        @extend %right;
+
+        &::after {
+          content: attr(data-button);
+          @include opacity(.75);
+        }
+      }
+
+      &[data-button=B] {
+        @extend %bottom;
+
+        &::after {
+          content: attr(data-button);
+          @include opacity(.75);
+        }
+      }
+
+      &[data-button=Y] {
+        @extend %left;
+
+        &::after {
+          content: attr(data-button);
+          @include opacity(.75);
+        }
+      }
+    }
+  }
+
+  .capture {
+    justify-self: flex-end;
+    width: $nintendo-switch-joycon-button-capture-width;
+    height: $nintendo-switch-joycon-button-capture-height;
+    margin: $nintendo-switch-joycon-button-capture-margin;
+    @include border-radius($nintendo-switch-joycon-button-capture-border-radius);
+    background-color: $nintendo-switch-joycon-button-bg-color;
+
+    &::after {
+      content: " ";
+      display: block;
+      width: inherit;
+      height: inherit;
+      @include border-radius;
+      @include box-shadow($nintendo-switch-joycon-button-capture-box-shadow);
+    }
+  }
+
+  .home {
+    width: $nintendo-switch-joycon-button-home-width;
+    height: $nintendo-switch-joycon-button-home-height;
+    margin: $nintendo-switch-joycon-button-home-margin;
+    border: $nintendo-switch-joycon-button-home-border-width solid $nintendo-switch-joycon-button-home-border-color;
+    @include border-radius;
+    background-color: $nintendo-switch-joycon-button-bg-color;
+  }
+
+  // Themes
+  &.gray {
+    &.left,
+    &.right {
+      background-color: $joycon-gray-bg-color;
+    }
+  }
+
+  &.neon-red {
+    &.left,
+    &.right {
+      background-color: $joycon-neon-red-bg-color;
+    }
+  }
+
+  &.neon-blue {
+    &.left,
+    &.right {
+      background-color: $joycon-neon-blue-bg-color;
+    }
+  }
+
+  &.neon-yellow {
+    &.left,
+    &.right {
+      background-color: $joycon-neon-yellow-bg-color;
+    }
+  }
+
+  &.splatoon {
+    &.left {
+      background-color: $joycon-splatoon-left-bg-color;
+    }
+
+    &.right {
+      background-color: $joycon-splatoon-right-bg-color;
+    }
+  }
+
+  &.red {
+    &.left,
+    &.right {
+      background-color: $joycon-red-bg-color;
+    }
+  }
+
+  &.blue {
+    &.left,
+    &.right {
+      background-color: $joycon-blue-bg-color;
+    }
+  }
+
+  &.halloween {
+    &.left {
+      background-color: $joycon-halloween-left-bg-color;
+    }
+
+    &.right {
+      background-color: $joycon-halloween-right-bg-color;
+    }
+  }
+
+  &.pokemon-lets-go-pikachu {
+    &.left,
+    &.right {
+      background-color: $joycon-pokemon-lets-go-pikachu-bg-color;
+    }
+  }
+
+  &.pokemon-lets-go-eevee {
+    &.left,
+    &.right {
+      background-color: $joycon-pokemon-lets-go-eevee-bg-color;
+    }
+  }
+
+  &.nintendo-labo {
+    &.left,
+    &.right {
+      background-color: $joycon-nintendo-labo-bg-color;
+    }
+  }
+
+  &.animal-crossing {
+    &.left {
+      background-color: $joycon-animal-crossing-left-bg-color;
+    }
+
+    &.right {
+      background-color: $joycon-animal-crossing-right-bg-color;
+    }
+  }
+
+  &.fortnite-wildcat {
+    &.left {
+      background-color: $joycon-fornite-wildcat-left-bg-color;
+    }
+
+    &.right {
+      background-color: $joycon-fornite-wildcat-right-bg-color;
+    }
+  }
+}
+
+.select-joycons {
+  padding: $select-joycons-padding;
+
+  .select-joycons__themes {
+    // Nothing to do here...
+  }
+}
+
+%top {
+  top: 0;
+  left: 50%;
+  @include transform(translateX(-50%));
+}
+
+%right {
+  top: 50%;
+  right: 0;
+  @include transform(translateY(-50%));
+}
+
+%bottom {
+  bottom: 0;
+  left: 50%;
+  @include transform(translateX(-50%));
+}
+
+%left {
+  top: 50%;
+  left: 0;
+  @include transform(translateY(-50%));
 }

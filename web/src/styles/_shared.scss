@@ -19,10 +19,10 @@
 %screen {
   overflow: hidden;
   display: grid;
-  width: $screen-width;
-  height: $screen-height;
+  width: $nintendo-switch-screen-width;
+  height: $nintendo-switch-screen-height;
 
   &:focus {
-    outline: $screen-outline;
+    outline: $nintendo-switch-screen-outline;
   }
 }

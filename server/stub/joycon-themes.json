@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "title": "Gray",
+    "className": "gray"
+  },
+  {
+    "id": 2,
+    "title": "Neon Red",
+    "className": "neon-red"
+  },
+  {
+    "id": 3,
+    "title": "Neon Blue",
+    "className": "neon-blue"
+  },
+  {
+    "id": 4,
+    "title": "Neon Yellow",
+    "className": "neon-yellow"
+  },
+  {
+    "id": 5,
+    "title": "Splatoon",
+    "className": "splatoon"
+  },
+  {
+    "id": 6,
+    "title": "Red",
+    "className": "red"
+  },
+  {
+    "id": 7,
+    "title": "Blue",
+    "className": "blue"
+  },
+  {
+    "id": 8,
+    "title": "Halloween",
+    "className": "halloween"
+  },
+  {
+    "id": 9,
+    "title": "Pokemon Let\"s Go! Pikachu",
+    "className": "pokemon-lets-go-pikachu"
+  },
+  {
+    "id": 10,
+    "title": "Pokemon Let\"s Go! Eevee",
+    "className": "pokemon-lets-go-eevee"
+  },
+  {
+    "id": 11,
+    "title": "Nintendo Labo Creators Contest Edition",
+    "className": "nintendo-labo"
+  },
+  {
+    "id": 12,
+    "title": "Animal Crossing Special Edition",
+    "className": "animal-crossing"
+  },
+  {
+    "id": 13,
+    "title": "Fortnite Wildcat",
+    "className": "fortnite-wildcat"
+  }
+]

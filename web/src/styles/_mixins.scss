@@ -16,10 +16,10 @@
   background-clip: padding-box;
 }
 
-@mixin box-shadow($horiz: 2px, $vert: 4px, $blur: 2px, $spread: 0, $color: #000000) {
-  -webkit-box-shadow: $horiz $vert $blur $spread $color;
-  -moz-box-shadow: $horiz $vert $blur $spread $color;
-  box-shadow: $horiz $vert $blur $spread $color;
+@mixin box-shadow($box-shadow: 2px 4px 2px 0 #000000) {
+  -webkit-box-shadow: #{$box-shadow};
+  -moz-box-shadow: #{$box-shadow};
+  box-shadow: #{$box-shadow};
 }
 
 @mixin bp-small {
@@ -95,8 +95,8 @@
 @mixin box-shadow-animation($startColor: rgba(0, 0, 0, 0), $endColor: rgba(0, 195, 227, 0.1)) {
   @include animation('selected .6s');
   @include keyframes(selected) {
-    from { @include box-shadow(0, 0, 0, 0, $startColor); }
-    to { @include box-shadow(0, 0, 10px, 5px, $endColor); }
+    from { @include box-shadow(0 0 0 0 $startColor); }
+    to { @include box-shadow(0 0 10px 5px $endColor); }
   }
 }
 

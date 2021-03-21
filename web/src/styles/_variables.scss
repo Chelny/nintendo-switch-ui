@@ -1,35 +1,77 @@
-////////////////////////////// NINTENDO SWITCH //////////////////////////////
-$nintendo-switch-color: $white;
-$nintendo-switch-border-width: 32px;
-$nintendo-switch-border-color: $black;
-$nintendo-switch-border-left-width: 48px;
-$nintendo-switch-border-right-width: $nintendo-switch-border-left-width;
-$nintendo-switch-border-radius: 12px;
+////////////////////////////// NINTENDO SWITCH BODY //////////////////////////////
+$nintendo-switch-body-padding-x: 20px;
+$nintendo-switch-body-padding-y: 10px;
+$nintendo-switch-body-padding: $nintendo-switch-body-padding-y $nintendo-switch-body-padding-x;
+$nintendo-switch-body-bg-color: $tuna;
 
-
-////////////////////////////// SCREEN //////////////////////////////
-$screen-width: 640px;
-$screen-height: 360px;
-$screen-bg-color: $mine-shaft;
-$screen-outline: $black;
+$nintendo-switch-screen-width: 640px;
+$nintendo-switch-screen-height: 360px;
+$nintendo-switch-screen-border-width: 32px;
+$nintendo-switch-screen-border-color: $black;
+$nintendo-switch-screen-border-left-width: 48px;
+$nintendo-switch-screen-border-right-width: $nintendo-switch-screen-border-left-width;
+$nintendo-switch-screen-border-radius: 12px;
+$nintendo-switch-screen-bg-color: $mine-shaft;
+$nintendo-switch-screen-color: $white;
+$nintendo-switch-screen-font-family: $nintendo-switch-font-family;
+$nintendo-switch-screen-outline: $black;
 
 $screen-padding-x: 20px;
 $screen-padding-y: 20px;
 $screen-padding: $screen-padding-x $screen-padding-y;
 
 
+////////////////////////////// NINTENDO SWITCH JOYCONS //////////////////////////////
+$nintendo-switch-joycon-gap: 30px;
+$nintendo-switch-joycon-width: 125px;
+$nintendo-switch-joycon-height: calc(#{$nintendo-switch-screen-height} + (2 * #{$nintendo-switch-screen-border-width}) + (2 * #{$nintendo-switch-body-padding-y}));
+$nintendo-switch-joycon-border-radius: calc(#{$nintendo-switch-joycon-width} / 2);
+
+$nintendo-switch-joycon-button-bg-color: $joycon-button-bg-color;
+
+$nintendo-switch-joycon-button-minus-plus-width: 20px;
+$nintendo-switch-joycon-button-minus-plus-height: $nintendo-switch-joycon-button-minus-plus-width;
+$nintendo-switch-joycon-button-minus-plus-margin: 20px 10px;
+$nintendo-switch-joycon-button-minus-plus-length: $nintendo-switch-joycon-button-minus-plus-width;
+$nintendo-switch-joycon-button-minus-plus-thickness: 5px;
+
+$nintendo-switch-joycon-button-analog-stick-width: 60px;
+$nintendo-switch-joycon-button-analog-stick-height: 60px;
+$nintendo-switch-joycon-button-analog-stick-box-shadow: inset 0 0 2px 2px #333333;
+
+$nintendo-switch-joycon-button-group-height: 90px;
+$nintendo-switch-joycon-button-group-margin: 0 15px;
+$nintendo-switch-joycon-button-group-button-width: 30px;
+$nintendo-switch-joycon-button-group-button-height: $nintendo-switch-joycon-button-group-button-width;
+$nintendo-switch-joycon-button-group-arrow-color: $mine-shaft;
+$nintendo-switch-joycon-button-group-letter-color: $white;
+
+$nintendo-switch-joycon-button-capture-width: 25px;
+$nintendo-switch-joycon-button-capture-height: $nintendo-switch-joycon-button-capture-width;
+$nintendo-switch-joycon-button-capture-margin: 0 30px;
+$nintendo-switch-joycon-button-capture-border-radius: 2px;
+$nintendo-switch-joycon-button-capture-box-shadow: inset 0 0 2px 1px #333333;
+
+$nintendo-switch-joycon-button-home-width: 25px;
+$nintendo-switch-joycon-button-home-height: $nintendo-switch-joycon-button-home-width;
+$nintendo-switch-joycon-button-home-margin: 0 30px;
+$nintendo-switch-joycon-button-home-border-width: 3px;
+$nintendo-switch-joycon-button-home-border-color: #BABABA;
+
+
+
 ////////////////////////////// LOCK SCREEN //////////////////////////////
-$lock-screen-featured-news-width: calc(#{$screen-width} / 3);
-$lock-screen-featured-news-width-expanded: $screen-width;
-$lock-screen-featured-news-height: $screen-height;
+$lock-screen-featured-news-width: calc(#{$nintendo-switch-screen-width} / 3);
+$lock-screen-featured-news-width-expanded: $nintendo-switch-screen-width;
+$lock-screen-featured-news-height: $nintendo-switch-screen-height;
 $lock-screen-featured-news-bg-color: $cod-gray;
 $lock-screen-featured-news-list-gap: 10px;
 $lock-screen-featured-news-list-gap-expanded: 5px;
 $lock-screen-featured-news-list-padding-expanded: 20px 0;
 
-$lock-screen-home-menu-width: calc(#{$screen-width} - (#{$screen-width} / 3));
-$lock-screen-home-menu-width-expanded: $screen-width;
-$lock-screen-home-menu-height: $screen-height;
+$lock-screen-home-menu-width: calc(#{$nintendo-switch-screen-width} - (#{$nintendo-switch-screen-width} / 3));
+$lock-screen-home-menu-width-expanded: $nintendo-switch-screen-width;
+$lock-screen-home-menu-height: $nintendo-switch-screen-height;
 $lock-screen-home-menu-padding: $screen-padding;
 $lock-screen-home-menu-icon-width: 72px;
 $lock-screen-home-menu-icon-height: $lock-screen-home-menu-icon-width;
@@ -62,7 +104,7 @@ $users-section-padding: $screen-padding-x $screen-padding-y;
 $users-grid-template-rows-size: minmax(30px, 30px);
 $users-grid-template-columns-size: minmax(30px, 30px);
 $users-gap: 5px;
-$users-width: calc(#{$screen-width} / 2);
+$users-width: calc(#{$nintendo-switch-screen-width} / 2);
 $users-height: 30px;
 $user-icon-width: 24px;
 $user-icon-height: 24px;
@@ -120,7 +162,7 @@ $nav-item-title-font-size: $font-size-xs;
 
 
 ////////////////////////////// NAVIGATION //////////////////////////////
-$footer-section-width: calc(#{$screen-width} - (2 * 20px)); // Add margin * 2
+$footer-section-width: calc(#{$nintendo-switch-screen-width} - (2 * 20px)); // Add margin * 2
 $footer-section-margin: 0 20px;
 $footer-section-border-width: 1px;
 $footer-section-border-color: $white;
@@ -156,3 +198,14 @@ $card-title-bg-color: rgba(0, 0, 0, 0.75);
 
 $glowing-border-color-from-hover: $robins-egg-blue;
 $glowing-border-color-to-hover: $ice-cold;
+
+$form-select-width: 300px;
+$form-select-padding-y: 8px;
+$form-select-padding-x: 10px;
+$form-select-border-width: 1px;
+$form-select-border-color: $mine-shaft;
+$form-select-border-radius: 2px;
+$form-select-bg-color: $white;
+$form-select-border-background-position: calc(100% - #{$form-select-padding-x});
+
+$select-joycons-padding: 10px;
