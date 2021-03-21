@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const configuration = {
   entry: './src/index.js',
@@ -90,14 +89,6 @@ const configuration = {
       title : 'Nintendo Switch UI',
       template: './public/index.html',
       manifest: './public/manifest.json'
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: './public/favicon.ico',
-          to: './favicon.ico'
-        }
-      ]
     }),
     new webpack.ProvidePlugin({
       'React': 'react',
