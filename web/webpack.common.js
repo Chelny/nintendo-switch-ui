@@ -9,8 +9,7 @@ const configuration = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'assets/js/[name].js',
-    publicPath: './'
+    filename: 'assets/js/[name].js'
   },
 
   module: {
@@ -60,36 +59,6 @@ const configuration = {
             loader: 'sass-resources-loader',
             options: {
               resources: path.resolve(__dirname, 'src/styles/styles.scss')
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(gif|jpe?g|png|svg)$/,
-        exclude: path.resolve(__dirname, 'node_modules'),
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              publicPath: '../../assets/images',
-              outputPath: 'assets/images',
-              limit: 15000
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?v=\d+\.\d+\.\d+)?$/,
-        exclude: path.resolve(__dirname, 'node_modules'),
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              publicPath: '../../assets/fonts',
-              outputPath: 'assets/fonts',
-              limit: 10000
             }
           }
         ]
