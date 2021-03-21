@@ -33,4 +33,5 @@ The app is optimized for desktop only.
 ## Copyright
 
 Images such as Mii avatars, game covers, navigation buttons and any other Nintendo Switch icons are owned by [Nintendo Co., Ltd](https://www.nintendo.co.jp/).\
-The font used is [FOT-Rodin NTLG Pro](https://archive.org/download/Fontworks/Fonts/).
+Game console font: [FOT-Rodin NTLG Pro](https://archive.org/download/Fontworks/Fonts/)\
+Favicons: Copyright 2020 Twitter, Inc and [other contributors](https://github.com/twitter/twemoji) - Generated at [https://favicon.io/emoji-favicons/video-game](https://favicon.io/emoji-favicons/video-game)
