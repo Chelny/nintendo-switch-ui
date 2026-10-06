@@ -11,7 +11,7 @@
     "UI"
   ],
   "author": "Chelny Duplan",
-  "homepage": "https://chelny.github.io/nintendo-switch-ui/",
+  "homepage": "https://nintendo-switch-ui.vercel.app",
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
     "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --config webpack.prod.js",
