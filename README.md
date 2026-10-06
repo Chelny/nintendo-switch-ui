@@ -4,7 +4,7 @@
 
 This project demonstrates the UI and some functionalities of the Nintendo Switch. The technologies used are HTML, Javascript (React), CSS (Sass) and Node.js.
 
-[Live demo](https://chelny.github.io/nintendo-switch-ui/)
+[Live demo](https://nintendo-switch-ui.vercel.app)
 
 ## Run the app locally
 
@@ -17,7 +17,7 @@ Open 2 terminals in the root directory then...
 > _**NOTE:** You may skip this step if you're using the online API. In `web/src/app/Constants.js`, the stub API URL can be uncommented if you want to use it instead. By default, the online API URL is being used._
 
 Type `cd server` then, execute `npm run dev`.
-Open [http://localhost:3001](http://localhost:3001) in the browser to see if the server has successfully started. "The server is running." should be displayed. 
+Open [http://localhost:3001](http://localhost:3001) in the browser to see if the server has successfully started. "The server is running." should be displayed.
 
 Games, navigation and users data are retreived from server.
 
