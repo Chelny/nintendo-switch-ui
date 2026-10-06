@@ -14,7 +14,7 @@
   "homepage": "https://chelny.github.io/nintendo-switch-ui/",
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --config webpack.prod.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "test": "react-scripts test",
