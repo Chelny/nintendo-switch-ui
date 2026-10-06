@@ -27,8 +27,7 @@ module.exports = merge(common, {
               context: path.resolve(__dirname, 'src/images'),
               name: '[path][name].[ext]',
               publicPath: '../../assets/images',
-              outputPath: 'assets/images',
-              limit: 15000
+              outputPath: 'assets/images'
             }
           }
         ]
@@ -43,8 +42,7 @@ module.exports = merge(common, {
               context: path.resolve(__dirname, 'src/fonts'),
               name: '[path][name].[ext]',
               publicPath: '../../assets/fonts',
-              outputPath: 'assets/fonts',
-              limit: 10000
+              outputPath: 'assets/fonts'
             }
           }
         ]
